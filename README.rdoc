@@ -1,0 +1,39 @@
+* Ruby version
+2.2.2
+
+* Rails version
+4.1.5
+
+* Database creation
+Mysql
+
+Repository Url
+https://bitbucket.org/vivek0123456789/assignment/src/master/
+
+Intro:
+This fundamental app holds a collection of companies' data including its employee. In this task, you will be required to develop new features according to the following.
+As a user, I want to be able to do bulk import by uploading an excel file containing information about employees (name, email, contact no, age, and Gender) for a company so that I can save time onboarding users.
+
+
+Definition:
+If a valid file upload user should see success messages(without refreshing the page i.e ajax/remote request)
+If the user tries to upload any other file except excel, it should say that file is invalid
+If some of the information provided within the excel file is not valid (violating model validation)
+create excel error report if any invalid data was entered(explaining the error with row in which error has been encountered)
+
+On clicking company, it should show all employee lists (sorted by their name) and add the Deletion of an employee from the database(make it a remote call so that on deletion it should be deleted from the database and from the current page without refreshing the page)    
+
+
+Validation:
+Company should exist
+Should follow model validation (employee email must be unique and throw custom message 'Employee exists with the same email on validation failure')
+Only process excel file
+Reject if no excel file is uploaded
+
+
+Objective :
+Develop the feature based on the requirement
+Follow best practices (coding style)
+Ensure code readability and design for the scalable, robust application.
+You may install gems that you need
+You can change the current implementation if you need to or make the assumptions you want.

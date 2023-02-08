@@ -1,0 +1,32 @@
+<% flash.each do |type, msg| %>
+  <div>
+    <%= msg %>
+  </div>
+<% end %>
+<%= form_tag bulk_upload_employees_path, multipart: true do %>
+  <%= label_tag "Import File:" %>
+  <%= file_field_tag :file%>
+  <%= button_tag type: "submit" do %>
+    <%= "Submit" %>
+  <% end %>
+<% end %>
+<% if @success.present?%>
+  <div>
+    <%- @success.each do |f|%>
+      <div>
+        <%= "The row Number #{f[:row_no]} has successfully been imported"%>
+      </div>
+    <% end %>
+  </div>
+<%end%>
+
+<% if @errors.present?%>
+  <div>
+    <span> These are the errors</span>
+    <%- @errors.each do |f|%>
+      <div>
+        <%= "The row Number #{f[:row_no]}: #{f[:message]}"%>
+      </div>
+    <% end %>
+  </div>
+<%end%>

@@ -1,0 +1,1579 @@
+  [1m[36m (76.8ms)[0m  [1mCREATE TABLE `schema_migrations` (`version` varchar(255) NOT NULL) ENGINE=InnoDB[0m
+  [1m[35m (49.5ms)[0m  CREATE UNIQUE INDEX `unique_schema_migrations`  ON `schema_migrations` (`version`) 
+  [1m[36mActiveRecord::SchemaMigration Load (1.4ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Migrating to CreateCompanies (20230105100457)
+  [1m[35m (21.5ms)[0m  CREATE TABLE `companies` (`id` int(11) auto_increment PRIMARY KEY, `company_name` varchar(255), `company_address` text, `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB
+  [1m[36m (0.3ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (1.7ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES ('20230105100457')
+  [1m[36m (2.3ms)[0m  [1mCOMMIT[0m
+Migrating to CreateEmployees (20230105100805)
+  [1m[35m (17.3ms)[0m  CREATE TABLE `employees` (`id` int(11) auto_increment PRIMARY KEY, `name` varchar(255), `gender` varchar(255), `email` varchar(255), `age` int(11), `contact_no` varchar(255), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB
+  [1m[36m (0.4ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (1.0ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES ('20230105100805')
+  [1m[36m (1.7ms)[0m  [1mCOMMIT[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.5ms)[0m  SELECT `schema_migrations`.* FROM `schema_migrations`
+
+
+Started GET "/" for 127.0.0.1 at 2023-02-08 05:31:36 +0530
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Processing by CompaniesController#index as HTML
+  [1m[35mCompany Load (1.2ms)[0m  SELECT `companies`.* FROM `companies`
+  Rendered companies/index.html.erb within layouts/application (5.5ms)
+Completed 200 OK in 2060ms (Views: 2047.0ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/assets/companies.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2023-02-08 05:31:38 +0530
+
+
+Started GET "/assets/jquery.self-bd7ddd393353a8d2480a622e80342adf488fb6006d667e8b42e4c0073393abee.js?body=1" for 127.0.0.1 at 2023-02-08 05:31:38 +0530
+
+
+Started GET "/assets/jquery_ujs.self-82819b9f2de121124a614eeab50287468ad6f4b1ef4437925a7832ffbdf2cce9.js?body=1" for 127.0.0.1 at 2023-02-08 05:31:38 +0530
+
+
+Started GET "/assets/scaffolds.self-7a660622004042c6c7054cf8f3a7a691a41cb4b62c52585a4217df5256691712.css?body=1" for 127.0.0.1 at 2023-02-08 05:31:38 +0530
+
+
+Started GET "/assets/companies.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2023-02-08 05:31:39 +0530
+
+
+Started GET "/assets/turbolinks.self-569ee74eaa15c1e2019317ff770b8769b1ec033a0f572a485f64c82ddc8f989e.js?body=1" for 127.0.0.1 at 2023-02-08 05:31:39 +0530
+
+
+Started GET "/assets/application.self-e80e8f2318043e8af94dddc2adad5a4f09739a8ebb323b3ab31cd71d45fd9113.css?body=1" for 127.0.0.1 at 2023-02-08 05:31:39 +0530
+
+
+Started GET "/assets/employees.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2023-02-08 05:31:39 +0530
+
+
+Started GET "/assets/employees.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2023-02-08 05:31:39 +0530
+
+
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for 127.0.0.1 at 2023-02-08 05:31:39 +0530
+
+
+Started GET "/companies/new" for 127.0.0.1 at 2023-02-08 05:31:46 +0530
+Processing by CompaniesController#new as HTML
+  Rendered companies/_form.html.erb (31.6ms)
+  Rendered companies/new.html.erb within layouts/application (41.0ms)
+Completed 200 OK in 126ms (Views: 113.7ms | ActiveRecord: 4.4ms)
+
+
+Started POST "/companies" for 127.0.0.1 at 2023-02-08 05:32:32 +0530
+Processing by CompaniesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"5a3HAA1lbvryM4EM7xPG+n3/A0rXziCHU7vPyix+3mM=", "company"=>{"company_name"=>"Pss", "company_address"=>"This is a company"}, "commit"=>"Create Company"}
+  [1m[36m (0.8ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (1.2ms)[0m  INSERT INTO `companies` (`company_address`, `company_name`, `created_at`, `updated_at`) VALUES ('This is a company', 'Pss', '2023-02-08 00:02:32', '2023-02-08 00:02:32')
+  [1m[36m (3.0ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/companies/1
+Completed 302 Found in 12ms (ActiveRecord: 4.9ms)
+
+
+Started GET "/companies/1" for 127.0.0.1 at 2023-02-08 05:32:32 +0530
+Processing by CompaniesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mCompany Load (4.0ms)[0m  SELECT  `companies`.* FROM `companies`  WHERE `companies`.`id` = 1 LIMIT 1
+  Rendered companies/show.html.erb within layouts/application (0.9ms)
+Completed 200 OK in 66ms (Views: 58.1ms | ActiveRecord: 4.0ms)
+
+
+Started GET "/companies" for 127.0.0.1 at 2023-02-08 05:32:56 +0530
+Processing by CompaniesController#index as HTML
+  [1m[36mCompany Load (0.3ms)[0m  [1mSELECT `companies`.* FROM `companies`[0m
+  Rendered companies/index.html.erb within layouts/application (6.2ms)
+Completed 200 OK in 65ms (Views: 61.6ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/employees" for 127.0.0.1 at 2023-02-08 05:33:03 +0530
+Processing by EmployeesController#index as HTML
+  [1m[35mEmployee Load (0.6ms)[0m  SELECT `employees`.* FROM `employees`
+  Rendered employees/index.html.erb within layouts/application (3.4ms)
+Completed 200 OK in 79ms (Views: 72.1ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/employees/new" for 127.0.0.1 at 2023-02-08 05:33:05 +0530
+Processing by EmployeesController#new as HTML
+  Rendered employees/_form.html.erb (23.5ms)
+  Rendered employees/new.html.erb within layouts/application (27.2ms)
+Completed 200 OK in 99ms (Views: 92.6ms | ActiveRecord: 2.7ms)
+
+
+Started POST "/employees" for 127.0.0.1 at 2023-02-08 05:33:39 +0530
+Processing by EmployeesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"5a3HAA1lbvryM4EM7xPG+n3/A0rXziCHU7vPyix+3mM=", "employee"=>{"name"=>"Prashant", "gender"=>"Male", "email"=>"test@test.com", "age"=>"30", "contact_no"=>"1111111111"}, "commit"=>"Create Employee"}
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (3.4ms)[0m  INSERT INTO `employees` (`age`, `contact_no`, `created_at`, `email`, `gender`, `name`, `updated_at`) VALUES (30, '1111111111', '2023-02-08 00:03:39', 'test@test.com', 'Male', 'Prashant', '2023-02-08 00:03:39')
+  [1m[36m (2.4ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/employees/1
+Completed 302 Found in 14ms (ActiveRecord: 6.1ms)
+
+
+Started GET "/employees/1" for 127.0.0.1 at 2023-02-08 05:33:39 +0530
+Processing by EmployeesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mEmployee Load (0.7ms)[0m  SELECT  `employees`.* FROM `employees`  WHERE `employees`.`id` = 1 LIMIT 1
+  Rendered employees/show.html.erb within layouts/application (1.1ms)
+Completed 200 OK in 47ms (Views: 44.7ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/employees" for 127.0.0.1 at 2023-02-08 05:33:44 +0530
+Processing by EmployeesController#index as HTML
+  [1m[36mEmployee Load (0.4ms)[0m  [1mSELECT `employees`.* FROM `employees`[0m
+  Rendered employees/index.html.erb within layouts/application (1.9ms)
+Completed 200 OK in 45ms (Views: 43.5ms | ActiveRecord: 0.4ms)
+  [1m[36mActiveRecord::SchemaMigration Load (0.6ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Migrating to AddCompanyIdToEmployees (20230208000736)
+  [1m[35m (56.9ms)[0m  ALTER TABLE `employees` ADD `company_id` int(11)
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES ('20230208000736')
+  [1m[36m (2.3ms)[0m  [1mCOMMIT[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.3ms)[0m  SELECT `schema_migrations`.* FROM `schema_migrations`
+
+
+Started GET "/employees" for 127.0.0.1 at 2023-02-08 05:42:37 +0530
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Processing by EmployeesController#index as HTML
+  [1m[35mEmployee Load (0.5ms)[0m  SELECT `employees`.* FROM `employees`
+  Rendered employees/index.html.erb within layouts/application (27.3ms)
+Completed 500 Internal Server Error in 50ms
+
+ActionView::Template::Error (undefined local variable or method `new_employees_import_path' for #<#<Class:0x00562a2de9e3e8>:0x00562a2de9d6a0>):
+    1: <h1>Listing employees</h1>
+    2: <%=
+    3:   link_to 'Upload from Excel',
+    4:   new_employees_import_path
+    5: %>
+    6: 
+    7: <table>
+  app/views/employees/index.html.erb:4:in `_app_views_employees_index_html_erb__2035874762355699572_47369579359180'
+
+
+  Rendered /home/prashant/.rvm/gems/ruby-2.2.2/gems/actionpack-4.1.5/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.6ms)
+  Rendered /home/prashant/.rvm/gems/ruby-2.2.2/gems/actionpack-4.1.5/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.1ms)
+  Rendered /home/prashant/.rvm/gems/ruby-2.2.2/gems/actionpack-4.1.5/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (17.8ms)
+  Rendered /home/prashant/.rvm/gems/ruby-2.2.2/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (1.1ms)
+  Rendered /home/prashant/.rvm/gems/ruby-2.2.2/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.4ms)
+  Rendered /home/prashant/.rvm/gems/ruby-2.2.2/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /home/prashant/.rvm/gems/ruby-2.2.2/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.7ms)
+  Rendered /home/prashant/.rvm/gems/ruby-2.2.2/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (31.1ms)
+  Rendered /home/prashant/.rvm/gems/ruby-2.2.2/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.3ms)
+  Rendered /home/prashant/.rvm/gems/ruby-2.2.2/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.5ms)
+  Rendered /home/prashant/.rvm/gems/ruby-2.2.2/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (58.2ms)
+
+
+Started GET "/employees" for 127.0.0.1 at 2023-02-08 05:43:34 +0530
+Processing by EmployeesController#index as HTML
+  [1m[36mEmployee Load (0.3ms)[0m  [1mSELECT `employees`.* FROM `employees`[0m
+  Rendered employees/index.html.erb within layouts/application (8.1ms)
+Completed 200 OK in 252ms (Views: 249.0ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/employees_imports/new" for 127.0.0.1 at 2023-02-08 05:43:56 +0530
+
+ActionController::RoutingError (uninitialized constant EmployeesImportsController):
+  activesupport (4.1.5) lib/active_support/inflector/methods.rb:238:in `const_get'
+  activesupport (4.1.5) lib/active_support/inflector/methods.rb:238:in `block in constantize'
+  activesupport (4.1.5) lib/active_support/inflector/methods.rb:236:in `each'
+  activesupport (4.1.5) lib/active_support/inflector/methods.rb:236:in `inject'
+  activesupport (4.1.5) lib/active_support/inflector/methods.rb:236:in `constantize'
+  actionpack (4.1.5) lib/action_dispatch/routing/route_set.rb:78:in `controller_reference'
+  actionpack (4.1.5) lib/action_dispatch/routing/route_set.rb:68:in `controller'
+  actionpack (4.1.5) lib/action_dispatch/routing/route_set.rb:46:in `call'
+  actionpack (4.1.5) lib/action_dispatch/journey/router.rb:71:in `block in call'
+  actionpack (4.1.5) lib/action_dispatch/journey/router.rb:59:in `each'
+  actionpack (4.1.5) lib/action_dispatch/journey/router.rb:59:in `call'
+  actionpack (4.1.5) lib/action_dispatch/routing/route_set.rb:678:in `call'
+  rack (1.5.5) lib/rack/etag.rb:23:in `call'
+  rack (1.5.5) lib/rack/conditionalget.rb:25:in `call'
+  rack (1.5.5) lib/rack/head.rb:11:in `call'
+  actionpack (4.1.5) lib/action_dispatch/middleware/params_parser.rb:27:in `call'
+  actionpack (4.1.5) lib/action_dispatch/middleware/flash.rb:254:in `call'
+  rack (1.5.5) lib/rack/session/abstract/id.rb:225:in `context'
+  rack (1.5.5) lib/rack/session/abstract/id.rb:220:in `call'
+  actionpack (4.1.5) lib/action_dispatch/middleware/cookies.rb:560:in `call'
+  activerecord (4.1.5) lib/active_record/query_cache.rb:36:in `call'
+  activerecord (4.1.5) lib/active_record/connection_adapters/abstract/connection_pool.rb:621:in `call'
+  activerecord (4.1.5) lib/active_record/migration.rb:380:in `call'
+  actionpack (4.1.5) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+  activesupport (4.1.5) lib/active_support/callbacks.rb:82:in `run_callbacks'
+  actionpack (4.1.5) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (4.1.5) lib/action_dispatch/middleware/reloader.rb:73:in `call'
+  actionpack (4.1.5) lib/action_dispatch/middleware/remote_ip.rb:76:in `call'
+  actionpack (4.1.5) lib/action_dispatch/middleware/debug_exceptions.rb:17:in `call'
+  web-console (2.3.0) lib/web_console/middleware.rb:28:in `block in call'
+  web-console (2.3.0) lib/web_console/middleware.rb:18:in `catch'
+  web-console (2.3.0) lib/web_console/middleware.rb:18:in `call'
+  actionpack (4.1.5) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.1.5) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.1.5) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.1.5) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.1.5) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.1.5) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.1.5) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.1.5) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.5) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.5) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.1.5) lib/active_support/cache/strategy/local_cache_middleware.rb:26:in `call'
+  rack (1.5.5) lib/rack/lock.rb:17:in `call'
+  actionpack (4.1.5) lib/action_dispatch/middleware/static.rb:64:in `call'
+  rack (1.5.5) lib/rack/sendfile.rb:112:in `call'
+  railties (4.1.5) lib/rails/engine.rb:514:in `call'
+  railties (4.1.5) lib/rails/application.rb:144:in `call'
+  rack (1.5.5) lib/rack/lock.rb:17:in `call'
+  rack (1.5.5) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.5) lib/rack/handler/webrick.rb:60:in `service'
+  /home/prashant/.rvm/rubies/ruby-2.2.2/lib/ruby/2.2.0/webrick/httpserver.rb:138:in `service'
+  /home/prashant/.rvm/rubies/ruby-2.2.2/lib/ruby/2.2.0/webrick/httpserver.rb:94:in `run'
+  /home/prashant/.rvm/rubies/ruby-2.2.2/lib/ruby/2.2.0/webrick/server.rb:294:in `block in start_thread'
+
+
+  Rendered /home/prashant/.rvm/gems/ruby-2.2.2/gems/actionpack-4.1.5/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.2ms)
+  Rendered /home/prashant/.rvm/gems/ruby-2.2.2/gems/actionpack-4.1.5/lib/action_dispatch/middleware/templates/routes/_route.html.erb (1.9ms)
+  Rendered /home/prashant/.rvm/gems/ruby-2.2.2/gems/actionpack-4.1.5/lib/action_dispatch/middleware/templates/routes/_table.html.erb (7.6ms)
+  Rendered /home/prashant/.rvm/gems/ruby-2.2.2/gems/actionpack-4.1.5/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (46.5ms)
+  Rendered /home/prashant/.rvm/gems/ruby-2.2.2/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.4ms)
+  Rendered /home/prashant/.rvm/gems/ruby-2.2.2/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.4ms)
+  Rendered /home/prashant/.rvm/gems/ruby-2.2.2/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.7ms)
+  Rendered /home/prashant/.rvm/gems/ruby-2.2.2/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.4ms)
+  Rendered /home/prashant/.rvm/gems/ruby-2.2.2/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (27.6ms)
+  Rendered /home/prashant/.rvm/gems/ruby-2.2.2/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.3ms)
+  Rendered /home/prashant/.rvm/gems/ruby-2.2.2/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (1.0ms)
+  Rendered /home/prashant/.rvm/gems/ruby-2.2.2/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (53.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2023-02-08 07:54:57 +0530
+  [1m[36mActiveRecord::SchemaMigration Load (15.4ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Processing by CompaniesController#index as HTML
+  [1m[35mCompany Load (0.4ms)[0m  SELECT `companies`.* FROM `companies`
+  Rendered companies/index.html.erb within layouts/application (9.5ms)
+Completed 200 OK in 352ms (Views: 324.7ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/employees" for 127.0.0.1 at 2023-02-08 07:55:04 +0530
+Processing by EmployeesController#index as HTML
+  [1m[36mEmployee Load (0.5ms)[0m  [1mSELECT `employees`.* FROM `employees`[0m
+  Rendered employees/index.html.erb within layouts/application (37.7ms)
+Completed 500 Internal Server Error in 49ms
+
+ActionView::Template::Error (undefined local variable or method `prepare_import_railway_stations_path' for #<#<Class:0x0055b91b5742f0>:0x007ff575c6f6e8>):
+    1: <h1>Listing employees</h1>
+    2: <%= link_to 'Bulk Upload', prepare_import_railway_stations_path, class: "" %>
+    3: 
+    4: <table>
+    5:   <thead>
+  app/views/employees/index.html.erb:2:in `_app_views_employees_index_html_erb__846253653774937737_70346109841900'
+
+
+  Rendered /home/prashant/.rvm/gems/ruby-2.2.2/gems/actionpack-4.1.5/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.6ms)
+  Rendered /home/prashant/.rvm/gems/ruby-2.2.2/gems/actionpack-4.1.5/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.0ms)
+  Rendered /home/prashant/.rvm/gems/ruby-2.2.2/gems/actionpack-4.1.5/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (22.2ms)
+  Rendered /home/prashant/.rvm/gems/ruby-2.2.2/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.4ms)
+  Rendered /home/prashant/.rvm/gems/ruby-2.2.2/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.4ms)
+  Rendered /home/prashant/.rvm/gems/ruby-2.2.2/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.6ms)
+  Rendered /home/prashant/.rvm/gems/ruby-2.2.2/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.7ms)
+  Rendered /home/prashant/.rvm/gems/ruby-2.2.2/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (37.0ms)
+  Rendered /home/prashant/.rvm/gems/ruby-2.2.2/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.5ms)
+  Rendered /home/prashant/.rvm/gems/ruby-2.2.2/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.5ms)
+  Rendered /home/prashant/.rvm/gems/ruby-2.2.2/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (72.8ms)
+
+
+Started GET "/employees" for 127.0.0.1 at 2023-02-08 07:57:26 +0530
+Processing by EmployeesController#index as HTML
+  [1m[35mEmployee Load (1.1ms)[0m  SELECT `employees`.* FROM `employees`
+  Rendered employees/index.html.erb within layouts/application (27.2ms)
+Completed 500 Internal Server Error in 31ms
+
+ActionView::Template::Error (undefined local variable or method `prepare_import_railway_stations_path' for #<#<Class:0x0055b91b08f028>:0x0055b91b08d7f0>):
+    1: <h1>Listing employees</h1>
+    2: <%= link_to 'Bulk Upload', prepare_import_railway_stations_path, class: "" %>
+    3: 
+    4: <table>
+    5:   <thead>
+  app/views/employees/index.html.erb:2:in `_app_views_employees_index_html_erb__846253653774937737_70346109841900'
+
+
+  Rendered /home/prashant/.rvm/gems/ruby-2.2.2/gems/actionpack-4.1.5/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.7ms)
+  Rendered /home/prashant/.rvm/gems/ruby-2.2.2/gems/actionpack-4.1.5/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.0ms)
+  Rendered /home/prashant/.rvm/gems/ruby-2.2.2/gems/actionpack-4.1.5/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (20.9ms)
+  Rendered /home/prashant/.rvm/gems/ruby-2.2.2/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.4ms)
+  Rendered /home/prashant/.rvm/gems/ruby-2.2.2/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.6ms)
+  Rendered /home/prashant/.rvm/gems/ruby-2.2.2/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.6ms)
+  Rendered /home/prashant/.rvm/gems/ruby-2.2.2/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.4ms)
+  Rendered /home/prashant/.rvm/gems/ruby-2.2.2/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (28.8ms)
+  Rendered /home/prashant/.rvm/gems/ruby-2.2.2/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.5ms)
+  Rendered /home/prashant/.rvm/gems/ruby-2.2.2/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.7ms)
+  Rendered /home/prashant/.rvm/gems/ruby-2.2.2/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (56.0ms)
+
+
+Started GET "/employees" for 127.0.0.1 at 2023-02-08 07:57:48 +0530
+Processing by EmployeesController#index as HTML
+  [1m[36mEmployee Load (1.7ms)[0m  [1mSELECT `employees`.* FROM `employees`[0m
+  Rendered employees/index.html.erb within layouts/application (26.2ms)
+Completed 500 Internal Server Error in 28ms
+
+ActionView::Template::Error (undefined local variable or method `prepare_import_employees_path' for #<#<Class:0x0055b91b08f028>:0x0055b91aee5da8>):
+    1: <h1>Listing employees</h1>
+    2: <%= link_to 'Bulk Upload', prepare_import_employees_path, class: "" %>
+    3: 
+    4: <table>
+    5:   <thead>
+  app/views/employees/index.html.erb:2:in `_app_views_employees_index_html_erb__846253653774937737_70346114407360'
+
+
+  Rendered /home/prashant/.rvm/gems/ruby-2.2.2/gems/actionpack-4.1.5/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.1ms)
+  Rendered /home/prashant/.rvm/gems/ruby-2.2.2/gems/actionpack-4.1.5/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.0ms)
+  Rendered /home/prashant/.rvm/gems/ruby-2.2.2/gems/actionpack-4.1.5/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (20.0ms)
+  Rendered /home/prashant/.rvm/gems/ruby-2.2.2/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.5ms)
+  Rendered /home/prashant/.rvm/gems/ruby-2.2.2/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.6ms)
+  Rendered /home/prashant/.rvm/gems/ruby-2.2.2/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.9ms)
+  Rendered /home/prashant/.rvm/gems/ruby-2.2.2/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.4ms)
+  Rendered /home/prashant/.rvm/gems/ruby-2.2.2/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (28.9ms)
+  Rendered /home/prashant/.rvm/gems/ruby-2.2.2/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.4ms)
+  Rendered /home/prashant/.rvm/gems/ruby-2.2.2/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.5ms)
+  Rendered /home/prashant/.rvm/gems/ruby-2.2.2/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (57.2ms)
+
+
+Started GET "/employees" for 127.0.0.1 at 2023-02-08 07:58:46 +0530
+Processing by EmployeesController#index as HTML
+  [1m[35mEmployee Load (0.9ms)[0m  SELECT `employees`.* FROM `employees`
+  Rendered employees/index.html.erb within layouts/application (18.2ms)
+Completed 200 OK in 115ms (Views: 110.5ms | ActiveRecord: 2.1ms)
+
+
+Started GET "/assets/companies.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2023-02-08 07:58:47 +0530
+
+
+Started GET "/assets/employees.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2023-02-08 07:58:47 +0530
+
+
+Started GET "/assets/scaffolds.self-7a660622004042c6c7054cf8f3a7a691a41cb4b62c52585a4217df5256691712.css?body=1" for 127.0.0.1 at 2023-02-08 07:58:47 +0530
+
+
+Started GET "/assets/turbolinks.self-569ee74eaa15c1e2019317ff770b8769b1ec033a0f572a485f64c82ddc8f989e.js?body=1" for 127.0.0.1 at 2023-02-08 07:58:47 +0530
+
+
+Started GET "/assets/jquery.self-bd7ddd393353a8d2480a622e80342adf488fb6006d667e8b42e4c0073393abee.js?body=1" for 127.0.0.1 at 2023-02-08 07:58:47 +0530
+
+
+Started GET "/assets/jquery_ujs.self-82819b9f2de121124a614eeab50287468ad6f4b1ef4437925a7832ffbdf2cce9.js?body=1" for 127.0.0.1 at 2023-02-08 07:58:47 +0530
+
+
+Started GET "/assets/application.self-e80e8f2318043e8af94dddc2adad5a4f09739a8ebb323b3ab31cd71d45fd9113.css?body=1" for 127.0.0.1 at 2023-02-08 07:58:47 +0530
+
+
+Started GET "/assets/companies.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2023-02-08 07:58:47 +0530
+
+
+Started GET "/assets/employees.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2023-02-08 07:58:47 +0530
+
+
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for 127.0.0.1 at 2023-02-08 07:58:47 +0530
+
+
+Started GET "/employees/prepare_import" for 127.0.0.1 at 2023-02-08 07:58:49 +0530
+Processing by EmployeesController#prepare_import as HTML
+  Rendered employees/prepare_import.html.erb within layouts/application (28.0ms)
+Completed 500 Internal Server Error in 34ms
+
+ActionView::Template::Error (undefined local variable or method `bulk_upload_railway_stations_path' for #<#<Class:0x007ff5769cc958>:0x007ff57429ce50>):
+    1: <%= form_tag bulk_upload_railway_stations_path, multipart: true, class: 'form-inline display_block' do %>
+    2:   <div class="container">
+    3:     <div class="row">
+    4:       <div class="col-md-6 required">
+  app/views/employees/prepare_import.html.erb:1:in `_app_views_employees_prepare_import_html_erb___4073702932086888252_70346096222660'
+
+
+  Rendered /home/prashant/.rvm/gems/ruby-2.2.2/gems/actionpack-4.1.5/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.5ms)
+  Rendered /home/prashant/.rvm/gems/ruby-2.2.2/gems/actionpack-4.1.5/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.3ms)
+  Rendered /home/prashant/.rvm/gems/ruby-2.2.2/gems/actionpack-4.1.5/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (23.1ms)
+  Rendered /home/prashant/.rvm/gems/ruby-2.2.2/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.7ms)
+  Rendered /home/prashant/.rvm/gems/ruby-2.2.2/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (1.7ms)
+  Rendered /home/prashant/.rvm/gems/ruby-2.2.2/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (1.9ms)
+  Rendered /home/prashant/.rvm/gems/ruby-2.2.2/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.4ms)
+  Rendered /home/prashant/.rvm/gems/ruby-2.2.2/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (36.6ms)
+  Rendered /home/prashant/.rvm/gems/ruby-2.2.2/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (2.5ms)
+  Rendered /home/prashant/.rvm/gems/ruby-2.2.2/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.9ms)
+  Rendered /home/prashant/.rvm/gems/ruby-2.2.2/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (75.8ms)
+
+
+Started GET "/employees/prepare_import" for 127.0.0.1 at 2023-02-08 07:59:09 +0530
+Processing by EmployeesController#prepare_import as HTML
+  Rendered employees/prepare_import.html.erb within layouts/application (4.5ms)
+Completed 200 OK in 103ms (Views: 101.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/companies.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2023-02-08 07:59:09 +0530
+
+
+Started GET "/assets/employees.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2023-02-08 07:59:09 +0530
+
+
+Started GET "/assets/application.self-e80e8f2318043e8af94dddc2adad5a4f09739a8ebb323b3ab31cd71d45fd9113.css?body=1" for 127.0.0.1 at 2023-02-08 07:59:09 +0530
+
+
+Started GET "/assets/scaffolds.self-7a660622004042c6c7054cf8f3a7a691a41cb4b62c52585a4217df5256691712.css?body=1" for 127.0.0.1 at 2023-02-08 07:59:09 +0530
+
+
+Started GET "/assets/companies.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2023-02-08 07:59:09 +0530
+
+
+Started GET "/assets/jquery.self-bd7ddd393353a8d2480a622e80342adf488fb6006d667e8b42e4c0073393abee.js?body=1" for 127.0.0.1 at 2023-02-08 07:59:10 +0530
+
+
+Started GET "/assets/turbolinks.self-569ee74eaa15c1e2019317ff770b8769b1ec033a0f572a485f64c82ddc8f989e.js?body=1" for 127.0.0.1 at 2023-02-08 07:59:10 +0530
+
+
+Started GET "/assets/jquery_ujs.self-82819b9f2de121124a614eeab50287468ad6f4b1ef4437925a7832ffbdf2cce9.js?body=1" for 127.0.0.1 at 2023-02-08 07:59:10 +0530
+
+
+Started GET "/assets/employees.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2023-02-08 07:59:10 +0530
+
+
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for 127.0.0.1 at 2023-02-08 07:59:10 +0530
+
+
+Started POST "/employees/bulk_upload" for 127.0.0.1 at 2023-02-08 07:59:21 +0530
+Processing by EmployeesController#bulk_upload as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"5a3HAA1lbvryM4EM7xPG+n3/A0rXziCHU7vPyix+3mM=", "file"=>#<ActionDispatch::Http::UploadedFile:0x007ff5759eb908 @tempfile=#<Tempfile:/tmp/RackMultipart20230208-27439-by1w34>, @original_filename="linkedcare.tgz", @content_type="application/x-compressed-tar", @headers="Content-Disposition: form-data; name=\"file\"; filename=\"linkedcare.tgz\"\r\nContent-Type: application/x-compressed-tar\r\n">, "button"=>""}
+Completed 500 Internal Server Error in 2ms
+
+ActionView::MissingTemplate (Missing template employees/bulk_upload, application/bulk_upload with {:locale=>[:en], :formats=>[:html], :variants=>[], :handlers=>[:erb, :builder, :raw, :ruby, :coffee, :jbuilder]}. Searched in:
+  * "/home/prashant/Documents/notes/assignment/app/views"
+):
+  actionview (4.1.5) lib/action_view/path_set.rb:46:in `find'
+  actionview (4.1.5) lib/action_view/lookup_context.rb:124:in `find'
+  actionview (4.1.5) lib/action_view/renderer/abstract_renderer.rb:18:in `find_template'
+  actionview (4.1.5) lib/action_view/renderer/template_renderer.rb:41:in `determine_template'
+  actionview (4.1.5) lib/action_view/renderer/template_renderer.rb:8:in `render'
+  actionview (4.1.5) lib/action_view/renderer/renderer.rb:42:in `render_template'
+  actionview (4.1.5) lib/action_view/renderer/renderer.rb:23:in `render'
+  actionview (4.1.5) lib/action_view/rendering.rb:99:in `_render_template'
+  actionpack (4.1.5) lib/action_controller/metal/streaming.rb:217:in `_render_template'
+  actionview (4.1.5) lib/action_view/rendering.rb:82:in `render_to_body'
+  actionpack (4.1.5) lib/action_controller/metal/rendering.rb:32:in `render_to_body'
+  actionpack (4.1.5) lib/action_controller/metal/renderers.rb:32:in `render_to_body'
+  actionpack (4.1.5) lib/abstract_controller/rendering.rb:25:in `render'
+  actionpack (4.1.5) lib/action_controller/metal/rendering.rb:16:in `render'
+  actionpack (4.1.5) lib/action_controller/metal/instrumentation.rb:41:in `block (2 levels) in render'
+  activesupport (4.1.5) lib/active_support/core_ext/benchmark.rb:12:in `block in ms'
+  /home/prashant/.rvm/rubies/ruby-2.2.2/lib/ruby/2.2.0/benchmark.rb:303:in `realtime'
+  activesupport (4.1.5) lib/active_support/core_ext/benchmark.rb:12:in `ms'
+  actionpack (4.1.5) lib/action_controller/metal/instrumentation.rb:41:in `block in render'
+  actionpack (4.1.5) lib/action_controller/metal/instrumentation.rb:84:in `cleanup_view_runtime'
+  activerecord (4.1.5) lib/active_record/railties/controller_runtime.rb:25:in `cleanup_view_runtime'
+  actionpack (4.1.5) lib/action_controller/metal/instrumentation.rb:40:in `render'
+  actionpack (4.1.5) lib/action_controller/metal/implicit_render.rb:10:in `default_render'
+  actionpack (4.1.5) lib/action_controller/metal/implicit_render.rb:5:in `send_action'
+  actionpack (4.1.5) lib/abstract_controller/base.rb:189:in `process_action'
+  actionpack (4.1.5) lib/action_controller/metal/rendering.rb:10:in `process_action'
+  actionpack (4.1.5) lib/abstract_controller/callbacks.rb:20:in `block in process_action'
+  activesupport (4.1.5) lib/active_support/callbacks.rb:113:in `call'
+  activesupport (4.1.5) lib/active_support/callbacks.rb:113:in `call'
+  activesupport (4.1.5) lib/active_support/callbacks.rb:149:in `block in halting_and_conditional'
+  activesupport (4.1.5) lib/active_support/callbacks.rb:229:in `call'
+  activesupport (4.1.5) lib/active_support/callbacks.rb:229:in `block in halting'
+  activesupport (4.1.5) lib/active_support/callbacks.rb:166:in `call'
+  activesupport (4.1.5) lib/active_support/callbacks.rb:166:in `block in halting'
+  activesupport (4.1.5) lib/active_support/callbacks.rb:166:in `call'
+  activesupport (4.1.5) lib/active_support/callbacks.rb:166:in `block in halting'
+  activesupport (4.1.5) lib/active_support/callbacks.rb:86:in `call'
+  activesupport (4.1.5) lib/active_support/callbacks.rb:86:in `run_callbacks'
+  actionpack (4.1.5) lib/abstract_controller/callbacks.rb:19:in `process_action'
+  actionpack (4.1.5) lib/action_controller/metal/rescue.rb:29:in `process_action'
+  actionpack (4.1.5) lib/action_controller/metal/instrumentation.rb:31:in `block in process_action'
+  activesupport (4.1.5) lib/active_support/notifications.rb:159:in `block in instrument'
+  activesupport (4.1.5) lib/active_support/notifications/instrumenter.rb:20:in `instrument'
+  activesupport (4.1.5) lib/active_support/notifications.rb:159:in `instrument'
+  actionpack (4.1.5) lib/action_controller/metal/instrumentation.rb:30:in `process_action'
+  actionpack (4.1.5) lib/action_controller/metal/params_wrapper.rb:250:in `process_action'
+  activerecord (4.1.5) lib/active_record/railties/controller_runtime.rb:18:in `process_action'
+  actionpack (4.1.5) lib/abstract_controller/base.rb:136:in `process'
+  actionview (4.1.5) lib/action_view/rendering.rb:30:in `process'
+  actionpack (4.1.5) lib/action_controller/metal.rb:196:in `dispatch'
+  actionpack (4.1.5) lib/action_controller/metal/rack_delegation.rb:13:in `dispatch'
+  actionpack (4.1.5) lib/action_controller/metal.rb:232:in `block in action'
+  actionpack (4.1.5) lib/action_dispatch/routing/route_set.rb:82:in `call'
+  actionpack (4.1.5) lib/action_dispatch/routing/route_set.rb:82:in `dispatch'
+  actionpack (4.1.5) lib/action_dispatch/routing/route_set.rb:50:in `call'
+  actionpack (4.1.5) lib/action_dispatch/journey/router.rb:71:in `block in call'
+  actionpack (4.1.5) lib/action_dispatch/journey/router.rb:59:in `each'
+  actionpack (4.1.5) lib/action_dispatch/journey/router.rb:59:in `call'
+  actionpack (4.1.5) lib/action_dispatch/routing/route_set.rb:678:in `call'
+  rack (1.5.5) lib/rack/etag.rb:23:in `call'
+  rack (1.5.5) lib/rack/conditionalget.rb:35:in `call'
+  rack (1.5.5) lib/rack/head.rb:11:in `call'
+  actionpack (4.1.5) lib/action_dispatch/middleware/params_parser.rb:27:in `call'
+  actionpack (4.1.5) lib/action_dispatch/middleware/flash.rb:254:in `call'
+  rack (1.5.5) lib/rack/session/abstract/id.rb:225:in `context'
+  rack (1.5.5) lib/rack/session/abstract/id.rb:220:in `call'
+  actionpack (4.1.5) lib/action_dispatch/middleware/cookies.rb:560:in `call'
+  activerecord (4.1.5) lib/active_record/query_cache.rb:36:in `call'
+  activerecord (4.1.5) lib/active_record/connection_adapters/abstract/connection_pool.rb:621:in `call'
+  activerecord (4.1.5) lib/active_record/migration.rb:380:in `call'
+  actionpack (4.1.5) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+  activesupport (4.1.5) lib/active_support/callbacks.rb:82:in `run_callbacks'
+  actionpack (4.1.5) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (4.1.5) lib/action_dispatch/middleware/reloader.rb:73:in `call'
+  actionpack (4.1.5) lib/action_dispatch/middleware/remote_ip.rb:76:in `call'
+  actionpack (4.1.5) lib/action_dispatch/middleware/debug_exceptions.rb:17:in `call'
+  web-console (2.3.0) lib/web_console/middleware.rb:28:in `block in call'
+  web-console (2.3.0) lib/web_console/middleware.rb:18:in `catch'
+  web-console (2.3.0) lib/web_console/middleware.rb:18:in `call'
+  actionpack (4.1.5) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.1.5) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.1.5) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.1.5) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.1.5) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.1.5) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.1.5) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.1.5) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.5) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.5) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.1.5) lib/active_support/cache/strategy/local_cache_middleware.rb:26:in `call'
+  rack (1.5.5) lib/rack/lock.rb:17:in `call'
+  actionpack (4.1.5) lib/action_dispatch/middleware/static.rb:64:in `call'
+  rack (1.5.5) lib/rack/sendfile.rb:112:in `call'
+  railties (4.1.5) lib/rails/engine.rb:514:in `call'
+  railties (4.1.5) lib/rails/application.rb:144:in `call'
+  rack (1.5.5) lib/rack/lock.rb:17:in `call'
+  rack (1.5.5) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.5) lib/rack/handler/webrick.rb:60:in `service'
+  /home/prashant/.rvm/rubies/ruby-2.2.2/lib/ruby/2.2.0/webrick/httpserver.rb:138:in `service'
+  /home/prashant/.rvm/rubies/ruby-2.2.2/lib/ruby/2.2.0/webrick/httpserver.rb:94:in `run'
+  /home/prashant/.rvm/rubies/ruby-2.2.2/lib/ruby/2.2.0/webrick/server.rb:294:in `block in start_thread'
+
+
+  Rendered /home/prashant/.rvm/gems/ruby-2.2.2/gems/actionpack-4.1.5/lib/action_dispatch/middleware/templates/rescues/missing_template.html.erb within rescues/layout (0.9ms)
+  Rendered /home/prashant/.rvm/gems/ruby-2.2.2/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.5ms)
+  Rendered /home/prashant/.rvm/gems/ruby-2.2.2/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.4ms)
+  Rendered /home/prashant/.rvm/gems/ruby-2.2.2/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.4ms)
+  Rendered /home/prashant/.rvm/gems/ruby-2.2.2/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.4ms)
+  Rendered /home/prashant/.rvm/gems/ruby-2.2.2/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (26.7ms)
+  Rendered /home/prashant/.rvm/gems/ruby-2.2.2/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.8ms)
+  Rendered /home/prashant/.rvm/gems/ruby-2.2.2/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.4ms)
+  Rendered /home/prashant/.rvm/gems/ruby-2.2.2/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (59.0ms)
+
+
+Started GET "/employees/prepare_import" for 127.0.0.1 at 2023-02-08 08:09:30 +0530
+  [1m[36mActiveRecord::SchemaMigration Load (0.6ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Processing by EmployeesController#prepare_import as HTML
+  Rendered employees/prepare_import.html.erb within layouts/application (2.5ms)
+Completed 200 OK in 269ms (Views: 259.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for 127.0.0.1 at 2023-02-08 08:09:30 +0530
+
+
+Started POST "/employees/bulk_upload" for 127.0.0.1 at 2023-02-08 08:09:41 +0530
+Processing by EmployeesController#bulk_upload as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"5a3HAA1lbvryM4EM7xPG+n3/A0rXziCHU7vPyix+3mM=", "file"=>#<ActionDispatch::Http::UploadedFile:0x007f10f1dab9a8 @tempfile=#<Tempfile:/tmp/RackMultipart20230208-28307-yru2js>, @original_filename="file_example_XLS_10.xls", @content_type="application/vnd.ms-excel", @headers="Content-Disposition: form-data; name=\"file\"; filename=\"file_example_XLS_10.xls\"\r\nContent-Type: application/vnd.ms-excel\r\n">, "button"=>""}
+Completed 500 Internal Server Error in 21ms
+
+NameError (undefined local variable or method `users_path' for #<EmployeesController:0x0055bc8842c8a0>):
+  app/controllers/employees_controller.rb:83:in `rescue in bulk_upload'
+  app/controllers/employees_controller.rb:69:in `bulk_upload'
+
+
+  Rendered /home/prashant/.rvm/gems/ruby-2.2.2/gems/actionpack-4.1.5/lib/action_dispatch/middleware/templates/rescues/_source.erb (1.1ms)
+  Rendered /home/prashant/.rvm/gems/ruby-2.2.2/gems/actionpack-4.1.5/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.3ms)
+  Rendered /home/prashant/.rvm/gems/ruby-2.2.2/gems/actionpack-4.1.5/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (3.2ms)
+  Rendered /home/prashant/.rvm/gems/ruby-2.2.2/gems/actionpack-4.1.5/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (42.1ms)
+  Rendered /home/prashant/.rvm/gems/ruby-2.2.2/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.5ms)
+  Rendered /home/prashant/.rvm/gems/ruby-2.2.2/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.5ms)
+  Rendered /home/prashant/.rvm/gems/ruby-2.2.2/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /home/prashant/.rvm/gems/ruby-2.2.2/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.8ms)
+  Rendered /home/prashant/.rvm/gems/ruby-2.2.2/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (44.7ms)
+  Rendered /home/prashant/.rvm/gems/ruby-2.2.2/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.6ms)
+  Rendered /home/prashant/.rvm/gems/ruby-2.2.2/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.5ms)
+  Rendered /home/prashant/.rvm/gems/ruby-2.2.2/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (78.7ms)
+
+
+Started GET "/employees/bulk_upload" for 127.0.0.1 at 2023-02-08 08:10:35 +0530
+Processing by EmployeesController#show as HTML
+  Parameters: {"id"=>"bulk_upload"}
+  [1m[35mEmployee Load (5.6ms)[0m  SELECT  `employees`.* FROM `employees`  WHERE `employees`.`id` = 0 LIMIT 1
+Completed 404 Not Found in 26ms
+
+ActiveRecord::RecordNotFound (Couldn't find Employee with 'id'=bulk_upload):
+  app/controllers/employees_controller.rb:90:in `set_employee'
+
+
+  Rendered /home/prashant/.rvm/gems/ruby-2.2.2/gems/actionpack-4.1.5/lib/action_dispatch/middleware/templates/rescues/_source.erb (1.3ms)
+  Rendered /home/prashant/.rvm/gems/ruby-2.2.2/gems/actionpack-4.1.5/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.0ms)
+  Rendered /home/prashant/.rvm/gems/ruby-2.2.2/gems/actionpack-4.1.5/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (2.7ms)
+  Rendered /home/prashant/.rvm/gems/ruby-2.2.2/gems/actionpack-4.1.5/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (32.5ms)
+  Rendered /home/prashant/.rvm/gems/ruby-2.2.2/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.6ms)
+  Rendered /home/prashant/.rvm/gems/ruby-2.2.2/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (1.0ms)
+  Rendered /home/prashant/.rvm/gems/ruby-2.2.2/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.4ms)
+  Rendered /home/prashant/.rvm/gems/ruby-2.2.2/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.6ms)
+  Rendered /home/prashant/.rvm/gems/ruby-2.2.2/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (28.1ms)
+  Rendered /home/prashant/.rvm/gems/ruby-2.2.2/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.4ms)
+  Rendered /home/prashant/.rvm/gems/ruby-2.2.2/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.6ms)
+  Rendered /home/prashant/.rvm/gems/ruby-2.2.2/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (57.4ms)
+
+
+Started POST "/employees/bulk_upload" for 127.0.0.1 at 2023-02-08 08:10:58 +0530
+Processing by EmployeesController#bulk_upload as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"5a3HAA1lbvryM4EM7xPG+n3/A0rXziCHU7vPyix+3mM=", "file"=>#<ActionDispatch::Http::UploadedFile:0x007f10f116cc78 @tempfile=#<Tempfile:/tmp/RackMultipart20230208-28307-16njrcs>, @original_filename="file_example_XLS_10.xls", @content_type="application/vnd.ms-excel", @headers="Content-Disposition: form-data; name=\"file\"; filename=\"file_example_XLS_10.xls\"\r\nContent-Type: application/vnd.ms-excel\r\n">, "button"=>""}
+Redirected to http://localhost:3000/employees/prepare_import
+Completed 302 Found in 3ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/employees/prepare_import" for 127.0.0.1 at 2023-02-08 08:10:58 +0530
+Processing by EmployeesController#prepare_import as HTML
+  Rendered employees/prepare_import.html.erb within layouts/application (2.0ms)
+Completed 200 OK in 65ms (Views: 64.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/employees/prepare_import" for 127.0.0.1 at 2023-02-08 08:11:39 +0530
+Processing by EmployeesController#prepare_import as HTML
+  Rendered employees/prepare_import.html.erb within layouts/application (1.4ms)
+Completed 200 OK in 81ms (Views: 79.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/employees" for 127.0.0.1 at 2023-02-08 08:11:44 +0530
+Processing by EmployeesController#index as HTML
+  [1m[36mEmployee Load (0.5ms)[0m  [1mSELECT `employees`.* FROM `employees`[0m
+  Rendered employees/index.html.erb within layouts/application (26.2ms)
+Completed 200 OK in 118ms (Views: 108.4ms | ActiveRecord: 3.8ms)
+
+
+Started GET "/employees/prepare_import" for 127.0.0.1 at 2023-02-08 08:11:52 +0530
+Processing by EmployeesController#prepare_import as HTML
+  Rendered employees/prepare_import.html.erb within layouts/application (1.8ms)
+Completed 200 OK in 82ms (Views: 80.6ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/employees/bulk_upload" for 127.0.0.1 at 2023-02-08 08:11:57 +0530
+Processing by EmployeesController#bulk_upload as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"5a3HAA1lbvryM4EM7xPG+n3/A0rXziCHU7vPyix+3mM=", "file"=>#<ActionDispatch::Http::UploadedFile:0x007f10f2454200 @tempfile=#<Tempfile:/tmp/RackMultipart20230208-28307-1unkmdl>, @original_filename="file_example_XLS_10.xls", @content_type="application/vnd.ms-excel", @headers="Content-Disposition: form-data; name=\"file\"; filename=\"file_example_XLS_10.xls\"\r\nContent-Type: application/vnd.ms-excel\r\n">, "button"=>""}
+Redirected to http://localhost:3000/employees/prepare_import
+Completed 302 Found in 3ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/employees/prepare_import" for 127.0.0.1 at 2023-02-08 08:11:57 +0530
+Processing by EmployeesController#prepare_import as HTML
+  Rendered employees/prepare_import.html.erb within layouts/application (1.3ms)
+Completed 200 OK in 82ms (Views: 81.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/employees/prepare_import" for 127.0.0.1 at 2023-02-08 08:12:43 +0530
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Processing by EmployeesController#prepare_import as HTML
+  Rendered employees/prepare_import.html.erb within layouts/application (3.8ms)
+Completed 200 OK in 293ms (Views: 280.3ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/employees/bulk_upload" for 127.0.0.1 at 2023-02-08 08:12:54 +0530
+Processing by EmployeesController#bulk_upload as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"5a3HAA1lbvryM4EM7xPG+n3/A0rXziCHU7vPyix+3mM=", "file"=>#<ActionDispatch::Http::UploadedFile:0x0055c1969a2498 @tempfile=#<Tempfile:/tmp/RackMultipart20230208-28733-syxrmz>, @original_filename="file_example_XLS_10.xls", @content_type="application/vnd.ms-excel", @headers="Content-Disposition: form-data; name=\"file\"; filename=\"file_example_XLS_10.xls\"\r\nContent-Type: application/vnd.ms-excel\r\n">, "button"=>""}
+Redirected to http://localhost:3000/employees/prepare_import
+Completed 302 Found in 3ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/employees/prepare_import" for 127.0.0.1 at 2023-02-08 08:12:54 +0530
+Processing by EmployeesController#prepare_import as HTML
+  Rendered employees/prepare_import.html.erb within layouts/application (1.7ms)
+Completed 200 OK in 50ms (Views: 49.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/employees/prepare_import" for 127.0.0.1 at 2023-02-08 08:14:31 +0530
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Processing by EmployeesController#prepare_import as HTML
+  Rendered employees/prepare_import.html.erb within layouts/application (2.2ms)
+Completed 200 OK in 326ms (Views: 314.3ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/employees/bulk_upload" for 127.0.0.1 at 2023-02-08 08:14:38 +0530
+Processing by EmployeesController#bulk_upload as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"5a3HAA1lbvryM4EM7xPG+n3/A0rXziCHU7vPyix+3mM=", "file"=>#<ActionDispatch::Http::UploadedFile:0x007fd011926d30 @tempfile=#<Tempfile:/tmp/RackMultipart20230208-28937-71qvsu>, @original_filename="file_example_XLS_10.xls", @content_type="application/vnd.ms-excel", @headers="Content-Disposition: form-data; name=\"file\"; filename=\"file_example_XLS_10.xls\"\r\nContent-Type: application/vnd.ms-excel\r\n">, "button"=>""}
+Redirected to http://localhost:3000/employees/prepare_import
+Completed 302 Found in 3ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/employees/prepare_import" for 127.0.0.1 at 2023-02-08 08:14:38 +0530
+Processing by EmployeesController#prepare_import as HTML
+  Rendered employees/prepare_import.html.erb within layouts/application (1.2ms)
+Completed 200 OK in 56ms (Views: 55.0ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/employees/bulk_upload" for 127.0.0.1 at 2023-02-08 08:15:19 +0530
+Processing by EmployeesController#bulk_upload as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"5a3HAA1lbvryM4EM7xPG+n3/A0rXziCHU7vPyix+3mM=", "file"=>#<ActionDispatch::Http::UploadedFile:0x007fd011cb9d58 @tempfile=#<Tempfile:/tmp/RackMultipart20230208-28937-1akjord>, @original_filename="file_example_XLS_10.xls", @content_type="application/vnd.ms-excel", @headers="Content-Disposition: form-data; name=\"file\"; filename=\"file_example_XLS_10.xls\"\r\nContent-Type: application/vnd.ms-excel\r\n">, "button"=>""}
+Redirected to http://localhost:3000/employees/prepare_import
+Completed 302 Found in 171800ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/employees/prepare_import" for 127.0.0.1 at 2023-02-08 08:18:11 +0530
+Processing by EmployeesController#prepare_import as HTML
+  Rendered employees/prepare_import.html.erb within layouts/application (4.9ms)
+Completed 200 OK in 82ms (Views: 79.4ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/employees/bulk_upload" for 127.0.0.1 at 2023-02-08 08:18:19 +0530
+Processing by EmployeesController#bulk_upload as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"5a3HAA1lbvryM4EM7xPG+n3/A0rXziCHU7vPyix+3mM=", "file"=>#<ActionDispatch::Http::UploadedFile:0x007fd0124d64c8 @tempfile=#<Tempfile:/tmp/RackMultipart20230208-28937-c2ukfm>, @original_filename="sample-pss.xls", @content_type="application/vnd.ms-excel", @headers="Content-Disposition: form-data; name=\"file\"; filename=\"sample-pss.xls\"\r\nContent-Type: application/vnd.ms-excel\r\n">, "button"=>""}
+Redirected to http://localhost:3000/employees/prepare_import
+Completed 302 Found in 279103ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/employees/prepare_import" for 127.0.0.1 at 2023-02-08 08:22:58 +0530
+Processing by EmployeesController#prepare_import as HTML
+  Rendered employees/prepare_import.html.erb within layouts/application (1.1ms)
+Completed 200 OK in 61ms (Views: 60.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/employees/prepare_import" for 127.0.0.1 at 2023-02-08 08:23:11 +0530
+  [1m[36mActiveRecord::SchemaMigration Load (2.0ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Processing by EmployeesController#prepare_import as HTML
+  Rendered employees/prepare_import.html.erb within layouts/application (3.7ms)
+Completed 200 OK in 417ms (Views: 404.5ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/employees/bulk_upload" for 127.0.0.1 at 2023-02-08 08:23:19 +0530
+Processing by EmployeesController#bulk_upload as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"5a3HAA1lbvryM4EM7xPG+n3/A0rXziCHU7vPyix+3mM=", "file"=>#<ActionDispatch::Http::UploadedFile:0x007f8c558d53b8 @tempfile=#<Tempfile:/tmp/RackMultipart20230208-29870-184b6au>, @original_filename="sample-pss.xls", @content_type="application/vnd.ms-excel", @headers="Content-Disposition: form-data; name=\"file\"; filename=\"sample-pss.xls\"\r\nContent-Type: application/vnd.ms-excel\r\n">, "button"=>""}
+Redirected to http://localhost:3000/employees/prepare_import
+Completed 302 Found in 193710ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/employees/prepare_import" for 127.0.0.1 at 2023-02-08 08:26:33 +0530
+Processing by EmployeesController#prepare_import as HTML
+  Rendered employees/prepare_import.html.erb within layouts/application (0.7ms)
+Completed 200 OK in 52ms (Views: 50.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/employees/prepare_import" for 127.0.0.1 at 2023-02-08 08:26:47 +0530
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Processing by EmployeesController#prepare_import as HTML
+  Rendered employees/prepare_import.html.erb within layouts/application (2.3ms)
+Completed 200 OK in 379ms (Views: 367.6ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/employees/bulk_upload" for 127.0.0.1 at 2023-02-08 08:26:54 +0530
+Processing by EmployeesController#bulk_upload as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"5a3HAA1lbvryM4EM7xPG+n3/A0rXziCHU7vPyix+3mM=", "file"=>#<ActionDispatch::Http::UploadedFile:0x00558efd305ea8 @tempfile=#<Tempfile:/tmp/RackMultipart20230208-30142-prhu4l>, @original_filename="sample-pss.xls", @content_type="application/vnd.ms-excel", @headers="Content-Disposition: form-data; name=\"file\"; filename=\"sample-pss.xls\"\r\nContent-Type: application/vnd.ms-excel\r\n">, "button"=>""}
+Redirected to http://localhost:3000/employees/prepare_import
+Completed 302 Found in 2824655ms (ActiveRecord: 12.2ms)
+
+
+Started GET "/employees/prepare_import" for 127.0.0.1 at 2023-02-08 09:13:59 +0530
+Processing by EmployeesController#prepare_import as HTML
+  Rendered employees/prepare_import.html.erb within layouts/application (0.6ms)
+Completed 200 OK in 52ms (Views: 51.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for 127.0.0.1 at 2023-02-08 09:13:59 +0530
+
+
+Started GET "/employees/prepare_import" for 127.0.0.1 at 2023-02-08 09:14:14 +0530
+  [1m[36mActiveRecord::SchemaMigration Load (0.8ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Processing by EmployeesController#prepare_import as HTML
+  Rendered employees/prepare_import.html.erb within layouts/application (4.0ms)
+Completed 200 OK in 328ms (Views: 316.6ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/employees/bulk_upload" for 127.0.0.1 at 2023-02-08 09:14:20 +0530
+Processing by EmployeesController#bulk_upload as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"5a3HAA1lbvryM4EM7xPG+n3/A0rXziCHU7vPyix+3mM=", "file"=>#<ActionDispatch::Http::UploadedFile:0x007f1e158fdd30 @tempfile=#<Tempfile:/tmp/RackMultipart20230208-31619-1irb7di>, @original_filename="dummy.jpg", @content_type="image/jpeg", @headers="Content-Disposition: form-data; name=\"file\"; filename=\"dummy.jpg\"\r\nContent-Type: image/jpeg\r\n">, "button"=>""}
+Completed 500 Internal Server Error in 5ms
+
+RuntimeError (Unknown file type: dummy.jpg):
+  app/controllers/employees_controller.rb:73:in `bulk_upload'
+
+
+  Rendered /home/prashant/.rvm/gems/ruby-2.2.2/gems/actionpack-4.1.5/lib/action_dispatch/middleware/templates/rescues/_source.erb (0.9ms)
+  Rendered /home/prashant/.rvm/gems/ruby-2.2.2/gems/actionpack-4.1.5/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.8ms)
+  Rendered /home/prashant/.rvm/gems/ruby-2.2.2/gems/actionpack-4.1.5/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.5ms)
+  Rendered /home/prashant/.rvm/gems/ruby-2.2.2/gems/actionpack-4.1.5/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (35.1ms)
+  Rendered /home/prashant/.rvm/gems/ruby-2.2.2/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (1.0ms)
+  Rendered /home/prashant/.rvm/gems/ruby-2.2.2/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.4ms)
+  Rendered /home/prashant/.rvm/gems/ruby-2.2.2/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /home/prashant/.rvm/gems/ruby-2.2.2/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.4ms)
+  Rendered /home/prashant/.rvm/gems/ruby-2.2.2/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (40.3ms)
+  Rendered /home/prashant/.rvm/gems/ruby-2.2.2/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.5ms)
+  Rendered /home/prashant/.rvm/gems/ruby-2.2.2/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.7ms)
+  Rendered /home/prashant/.rvm/gems/ruby-2.2.2/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (76.1ms)
+
+
+Started GET "/employees/prepare_import" for 127.0.0.1 at 2023-02-08 09:15:08 +0530
+Processing by EmployeesController#prepare_import as HTML
+  Rendered employees/prepare_import.html.erb within layouts/application (1.7ms)
+Completed 200 OK in 55ms (Views: 54.3ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/employees/bulk_upload" for 127.0.0.1 at 2023-02-08 09:15:13 +0530
+Processing by EmployeesController#bulk_upload as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"5a3HAA1lbvryM4EM7xPG+n3/A0rXziCHU7vPyix+3mM=", "file"=>#<ActionDispatch::Http::UploadedFile:0x007f1e15f8f630 @tempfile=#<Tempfile:/tmp/RackMultipart20230208-31619-1t05xnb>, @original_filename="dummy.jpg", @content_type="image/jpeg", @headers="Content-Disposition: form-data; name=\"file\"; filename=\"dummy.jpg\"\r\nContent-Type: image/jpeg\r\n">, "button"=>""}
+Completed 500 Internal Server Error in 9ms
+
+Zip::Error (Zip end of central directory signature not found):
+  app/controllers/employees_controller.rb:73:in `new'
+  app/controllers/employees_controller.rb:73:in `bulk_upload'
+
+
+  Rendered /home/prashant/.rvm/gems/ruby-2.2.2/gems/actionpack-4.1.5/lib/action_dispatch/middleware/templates/rescues/_source.erb (0.8ms)
+  Rendered /home/prashant/.rvm/gems/ruby-2.2.2/gems/actionpack-4.1.5/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.9ms)
+  Rendered /home/prashant/.rvm/gems/ruby-2.2.2/gems/actionpack-4.1.5/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.1ms)
+  Rendered /home/prashant/.rvm/gems/ruby-2.2.2/gems/actionpack-4.1.5/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (29.2ms)
+  Rendered /home/prashant/.rvm/gems/ruby-2.2.2/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.4ms)
+  Rendered /home/prashant/.rvm/gems/ruby-2.2.2/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.4ms)
+  Rendered /home/prashant/.rvm/gems/ruby-2.2.2/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.6ms)
+  Rendered /home/prashant/.rvm/gems/ruby-2.2.2/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.4ms)
+  Rendered /home/prashant/.rvm/gems/ruby-2.2.2/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (25.3ms)
+  Rendered /home/prashant/.rvm/gems/ruby-2.2.2/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.4ms)
+  Rendered /home/prashant/.rvm/gems/ruby-2.2.2/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.6ms)
+  Rendered /home/prashant/.rvm/gems/ruby-2.2.2/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (51.9ms)
+
+
+Started GET "/employees/prepare_import" for 127.0.0.1 at 2023-02-08 09:17:30 +0530
+Processing by EmployeesController#prepare_import as HTML
+  Rendered employees/prepare_import.html.erb within layouts/application (1.2ms)
+Completed 200 OK in 73ms (Views: 71.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/companies.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2023-02-08 09:17:30 +0530
+
+
+Started GET "/assets/employees.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2023-02-08 09:17:30 +0530
+
+
+Started GET "/assets/application.self-e80e8f2318043e8af94dddc2adad5a4f09739a8ebb323b3ab31cd71d45fd9113.css?body=1" for 127.0.0.1 at 2023-02-08 09:17:30 +0530
+
+
+Started GET "/assets/jquery.self-bd7ddd393353a8d2480a622e80342adf488fb6006d667e8b42e4c0073393abee.js?body=1" for 127.0.0.1 at 2023-02-08 09:17:30 +0530
+
+
+Started GET "/assets/turbolinks.self-569ee74eaa15c1e2019317ff770b8769b1ec033a0f572a485f64c82ddc8f989e.js?body=1" for 127.0.0.1 at 2023-02-08 09:17:30 +0530
+
+
+Started GET "/assets/scaffolds.self-7a660622004042c6c7054cf8f3a7a691a41cb4b62c52585a4217df5256691712.css?body=1" for 127.0.0.1 at 2023-02-08 09:17:30 +0530
+
+
+Started GET "/assets/jquery_ujs.self-82819b9f2de121124a614eeab50287468ad6f4b1ef4437925a7832ffbdf2cce9.js?body=1" for 127.0.0.1 at 2023-02-08 09:17:30 +0530
+
+
+Started GET "/assets/companies.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2023-02-08 09:17:30 +0530
+
+
+Started GET "/assets/employees.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2023-02-08 09:17:30 +0530
+
+
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for 127.0.0.1 at 2023-02-08 09:17:30 +0530
+
+
+Started GET "/assets/companies.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2023-02-08 09:20:59 +0530
+
+
+Started GET "/employees/prepare_import" for 127.0.0.1 at 2023-02-08 09:21:01 +0530
+Processing by EmployeesController#prepare_import as HTML
+  Rendered employees/prepare_import.html.erb within layouts/application (4.7ms)
+Completed 200 OK in 93ms (Views: 89.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/employees/prepare_import" for 127.0.0.1 at 2023-02-08 09:21:09 +0530
+  [1m[36mActiveRecord::SchemaMigration Load (0.9ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Processing by EmployeesController#prepare_import as HTML
+  Rendered employees/prepare_import.html.erb within layouts/application (5.7ms)
+Completed 200 OK in 375ms (Views: 365.1ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/employees/bulk_upload" for 127.0.0.1 at 2023-02-08 09:21:16 +0530
+Processing by EmployeesController#bulk_upload as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"5a3HAA1lbvryM4EM7xPG+n3/A0rXziCHU7vPyix+3mM=", "file"=>#<ActionDispatch::Http::UploadedFile:0x007f7fdd9183b8 @tempfile=#<Tempfile:/tmp/RackMultipart20230208-32606-rb9kmd>, @original_filename="doctor_onboarding.doc", @content_type="application/msword", @headers="Content-Disposition: form-data; name=\"file\"; filename=\"doctor_onboarding.doc\"\r\nContent-Type: application/msword\r\n">, "button"=>""}
+Completed 500 Internal Server Error in 3ms
+
+Zip::Error (Zip end of central directory signature not found):
+  app/controllers/employees_controller.rb:73:in `new'
+  app/controllers/employees_controller.rb:73:in `bulk_upload'
+
+
+  Rendered /home/prashant/.rvm/gems/ruby-2.2.2/gems/actionpack-4.1.5/lib/action_dispatch/middleware/templates/rescues/_source.erb (1.8ms)
+  Rendered /home/prashant/.rvm/gems/ruby-2.2.2/gems/actionpack-4.1.5/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.3ms)
+  Rendered /home/prashant/.rvm/gems/ruby-2.2.2/gems/actionpack-4.1.5/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (2.2ms)
+  Rendered /home/prashant/.rvm/gems/ruby-2.2.2/gems/actionpack-4.1.5/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (31.7ms)
+  Rendered /home/prashant/.rvm/gems/ruby-2.2.2/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.7ms)
+  Rendered /home/prashant/.rvm/gems/ruby-2.2.2/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.4ms)
+  Rendered /home/prashant/.rvm/gems/ruby-2.2.2/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.5ms)
+  Rendered /home/prashant/.rvm/gems/ruby-2.2.2/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.5ms)
+  Rendered /home/prashant/.rvm/gems/ruby-2.2.2/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (43.6ms)
+  Rendered /home/prashant/.rvm/gems/ruby-2.2.2/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.9ms)
+  Rendered /home/prashant/.rvm/gems/ruby-2.2.2/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.7ms)
+  Rendered /home/prashant/.rvm/gems/ruby-2.2.2/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (95.9ms)
+
+
+Started GET "/employees/prepare_import" for 127.0.0.1 at 2023-02-08 09:28:14 +0530
+Processing by EmployeesController#prepare_import as HTML
+  Rendered employees/prepare_import.html.erb within layouts/application (2.4ms)
+Completed 200 OK in 61ms (Views: 60.3ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/employees/bulk_upload" for 127.0.0.1 at 2023-02-08 09:28:21 +0530
+Processing by EmployeesController#bulk_upload as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"5a3HAA1lbvryM4EM7xPG+n3/A0rXziCHU7vPyix+3mM=", "file"=>#<ActionDispatch::Http::UploadedFile:0x007f7fddfda9d0 @tempfile=#<Tempfile:/tmp/RackMultipart20230208-32606-yzxu2i>, @original_filename="dummy.jpg", @content_type="image/jpeg", @headers="Content-Disposition: form-data; name=\"file\"; filename=\"dummy.jpg\"\r\nContent-Type: image/jpeg\r\n">, "button"=>""}
+Completed   in 126889ms
+
+
+Started GET "/employees/prepare_import" for 127.0.0.1 at 2023-02-08 09:30:40 +0530
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Processing by EmployeesController#prepare_import as HTML
+  Rendered employees/prepare_import.html.erb within layouts/application (3.2ms)
+Completed 200 OK in 319ms (Views: 308.8ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/employees/bulk_upload" for 127.0.0.1 at 2023-02-08 09:30:45 +0530
+Processing by EmployeesController#bulk_upload as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"5a3HAA1lbvryM4EM7xPG+n3/A0rXziCHU7vPyix+3mM=", "file"=>#<ActionDispatch::Http::UploadedFile:0x007fd9e191ac18 @tempfile=#<Tempfile:/tmp/RackMultipart20230208-574-1cahuyk>, @original_filename="dummy.jpg", @content_type="image/jpeg", @headers="Content-Disposition: form-data; name=\"file\"; filename=\"dummy.jpg\"\r\nContent-Type: image/jpeg\r\n">, "button"=>""}
+Redirected to http://localhost:3000/employees/prepare_import
+Completed 302 Found in 2ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/employees/prepare_import" for 127.0.0.1 at 2023-02-08 09:30:45 +0530
+Processing by EmployeesController#prepare_import as HTML
+  Rendered employees/prepare_import.html.erb within layouts/application (0.9ms)
+Completed 200 OK in 53ms (Views: 52.3ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/employees/bulk_upload" for 127.0.0.1 at 2023-02-08 09:31:13 +0530
+Processing by EmployeesController#bulk_upload as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"5a3HAA1lbvryM4EM7xPG+n3/A0rXziCHU7vPyix+3mM=", "file"=>#<ActionDispatch::Http::UploadedFile:0x007fd9e1ccf778 @tempfile=#<Tempfile:/tmp/RackMultipart20230208-574-w193zr>, @original_filename="dummy.jpg", @content_type="image/jpeg", @headers="Content-Disposition: form-data; name=\"file\"; filename=\"dummy.jpg\"\r\nContent-Type: image/jpeg\r\n">, "button"=>""}
+Redirected to http://localhost:3000/employees/prepare_import
+Completed 302 Found in 83580ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/employees/prepare_import" for 127.0.0.1 at 2023-02-08 09:32:37 +0530
+Processing by EmployeesController#prepare_import as HTML
+  Rendered employees/prepare_import.html.erb within layouts/application (0.9ms)
+Completed 200 OK in 78ms (Views: 77.0ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/employees/bulk_upload" for 127.0.0.1 at 2023-02-08 09:33:59 +0530
+Processing by EmployeesController#bulk_upload as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"5a3HAA1lbvryM4EM7xPG+n3/A0rXziCHU7vPyix+3mM=", "file"=>#<ActionDispatch::Http::UploadedFile:0x007fd9e24e2230 @tempfile=#<Tempfile:/tmp/RackMultipart20230208-574-wvlco3>, @original_filename="sample-pss.xls", @content_type="application/vnd.ms-excel", @headers="Content-Disposition: form-data; name=\"file\"; filename=\"sample-pss.xls\"\r\nContent-Type: application/vnd.ms-excel\r\n">, "button"=>""}
+Completed 500 Internal Server Error in 17ms
+
+ArgumentError (wrong number of arguments (0 for 2..3)):
+  app/controllers/employees_controller.rb:76:in `bulk_upload'
+
+
+  Rendered /home/prashant/.rvm/gems/ruby-2.2.2/gems/actionpack-4.1.5/lib/action_dispatch/middleware/templates/rescues/_source.erb (1.1ms)
+  Rendered /home/prashant/.rvm/gems/ruby-2.2.2/gems/actionpack-4.1.5/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.3ms)
+  Rendered /home/prashant/.rvm/gems/ruby-2.2.2/gems/actionpack-4.1.5/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (2.1ms)
+  Rendered /home/prashant/.rvm/gems/ruby-2.2.2/gems/actionpack-4.1.5/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (29.2ms)
+  Rendered /home/prashant/.rvm/gems/ruby-2.2.2/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.8ms)
+  Rendered /home/prashant/.rvm/gems/ruby-2.2.2/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.6ms)
+  Rendered /home/prashant/.rvm/gems/ruby-2.2.2/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /home/prashant/.rvm/gems/ruby-2.2.2/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.5ms)
+  Rendered /home/prashant/.rvm/gems/ruby-2.2.2/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (32.6ms)
+  Rendered /home/prashant/.rvm/gems/ruby-2.2.2/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.8ms)
+  Rendered /home/prashant/.rvm/gems/ruby-2.2.2/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.5ms)
+  Rendered /home/prashant/.rvm/gems/ruby-2.2.2/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (66.7ms)
+
+
+Started POST "/employees/bulk_upload" for 127.0.0.1 at 2023-02-08 09:34:35 +0530
+Processing by EmployeesController#bulk_upload as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"5a3HAA1lbvryM4EM7xPG+n3/A0rXziCHU7vPyix+3mM=", "file"=>#<ActionDispatch::Http::UploadedFile:0x007fd9e2921300 @tempfile=#<Tempfile:/tmp/RackMultipart20230208-574-13t1aro>, @original_filename="sample-pss.xls", @content_type="application/vnd.ms-excel", @headers="Content-Disposition: form-data; name=\"file\"; filename=\"sample-pss.xls\"\r\nContent-Type: application/vnd.ms-excel\r\n">, "button"=>""}
+Completed 500 Internal Server Error in 70704ms
+
+ArgumentError (wrong number of arguments (0 for 2..3)):
+  app/controllers/employees_controller.rb:77:in `bulk_upload'
+
+
+  Rendered /home/prashant/.rvm/gems/ruby-2.2.2/gems/actionpack-4.1.5/lib/action_dispatch/middleware/templates/rescues/_source.erb (1.7ms)
+  Rendered /home/prashant/.rvm/gems/ruby-2.2.2/gems/actionpack-4.1.5/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.5ms)
+  Rendered /home/prashant/.rvm/gems/ruby-2.2.2/gems/actionpack-4.1.5/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.5ms)
+  Rendered /home/prashant/.rvm/gems/ruby-2.2.2/gems/actionpack-4.1.5/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (33.8ms)
+  Rendered /home/prashant/.rvm/gems/ruby-2.2.2/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (1.2ms)
+  Rendered /home/prashant/.rvm/gems/ruby-2.2.2/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /home/prashant/.rvm/gems/ruby-2.2.2/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.5ms)
+  Rendered /home/prashant/.rvm/gems/ruby-2.2.2/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (1.3ms)
+  Rendered /home/prashant/.rvm/gems/ruby-2.2.2/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (32.3ms)
+  Rendered /home/prashant/.rvm/gems/ruby-2.2.2/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.3ms)
+  Rendered /home/prashant/.rvm/gems/ruby-2.2.2/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.4ms)
+  Rendered /home/prashant/.rvm/gems/ruby-2.2.2/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (59.7ms)
+
+
+Started POST "/employees/bulk_upload" for 127.0.0.1 at 2023-02-08 09:36:08 +0530
+Processing by EmployeesController#bulk_upload as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"5a3HAA1lbvryM4EM7xPG+n3/A0rXziCHU7vPyix+3mM=", "file"=>#<ActionDispatch::Http::UploadedFile:0x007fd9e14b5178 @tempfile=#<Tempfile:/tmp/RackMultipart20230208-574-1mlz342>, @original_filename="sample-pss.xls", @content_type="application/vnd.ms-excel", @headers="Content-Disposition: form-data; name=\"file\"; filename=\"sample-pss.xls\"\r\nContent-Type: application/vnd.ms-excel\r\n">, "button"=>""}
+Completed 500 Internal Server Error in 49037ms
+
+ArgumentError (wrong number of arguments (0 for 2..3)):
+  app/controllers/employees_controller.rb:77:in `bulk_upload'
+
+
+  Rendered /home/prashant/.rvm/gems/ruby-2.2.2/gems/actionpack-4.1.5/lib/action_dispatch/middleware/templates/rescues/_source.erb (1.0ms)
+  Rendered /home/prashant/.rvm/gems/ruby-2.2.2/gems/actionpack-4.1.5/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.2ms)
+  Rendered /home/prashant/.rvm/gems/ruby-2.2.2/gems/actionpack-4.1.5/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.5ms)
+  Rendered /home/prashant/.rvm/gems/ruby-2.2.2/gems/actionpack-4.1.5/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (25.1ms)
+  Rendered /home/prashant/.rvm/gems/ruby-2.2.2/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.6ms)
+  Rendered /home/prashant/.rvm/gems/ruby-2.2.2/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.4ms)
+  Rendered /home/prashant/.rvm/gems/ruby-2.2.2/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.6ms)
+  Rendered /home/prashant/.rvm/gems/ruby-2.2.2/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.4ms)
+  Rendered /home/prashant/.rvm/gems/ruby-2.2.2/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (23.6ms)
+  Rendered /home/prashant/.rvm/gems/ruby-2.2.2/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.3ms)
+  Rendered /home/prashant/.rvm/gems/ruby-2.2.2/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.7ms)
+  Rendered /home/prashant/.rvm/gems/ruby-2.2.2/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (47.2ms)
+
+
+Started POST "/employees/bulk_upload" for 127.0.0.1 at 2023-02-08 09:37:33 +0530
+Processing by EmployeesController#bulk_upload as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"5a3HAA1lbvryM4EM7xPG+n3/A0rXziCHU7vPyix+3mM=", "file"=>#<ActionDispatch::Http::UploadedFile:0x007fd9e1d57f88 @tempfile=#<Tempfile:/tmp/RackMultipart20230208-574-qqwkyc>, @original_filename="sample-pss.xls", @content_type="application/vnd.ms-excel", @headers="Content-Disposition: form-data; name=\"file\"; filename=\"sample-pss.xls\"\r\nContent-Type: application/vnd.ms-excel\r\n">, "button"=>""}
+Completed 500 Internal Server Error in 40ms
+
+ActionView::MissingTemplate (Missing template employees/bulk_upload, application/bulk_upload with {:locale=>[:en], :formats=>[:html], :variants=>[], :handlers=>[:erb, :builder, :raw, :ruby, :coffee, :jbuilder]}. Searched in:
+  * "/home/prashant/Documents/notes/assignment/app/views"
+):
+  actionview (4.1.5) lib/action_view/path_set.rb:46:in `find'
+  actionview (4.1.5) lib/action_view/lookup_context.rb:124:in `find'
+  actionview (4.1.5) lib/action_view/renderer/abstract_renderer.rb:18:in `find_template'
+  actionview (4.1.5) lib/action_view/renderer/template_renderer.rb:41:in `determine_template'
+  actionview (4.1.5) lib/action_view/renderer/template_renderer.rb:8:in `render'
+  actionview (4.1.5) lib/action_view/renderer/renderer.rb:42:in `render_template'
+  actionview (4.1.5) lib/action_view/renderer/renderer.rb:23:in `render'
+  actionview (4.1.5) lib/action_view/rendering.rb:99:in `_render_template'
+  actionpack (4.1.5) lib/action_controller/metal/streaming.rb:217:in `_render_template'
+  actionview (4.1.5) lib/action_view/rendering.rb:82:in `render_to_body'
+  actionpack (4.1.5) lib/action_controller/metal/rendering.rb:32:in `render_to_body'
+  actionpack (4.1.5) lib/action_controller/metal/renderers.rb:32:in `render_to_body'
+  actionpack (4.1.5) lib/abstract_controller/rendering.rb:25:in `render'
+  actionpack (4.1.5) lib/action_controller/metal/rendering.rb:16:in `render'
+  actionpack (4.1.5) lib/action_controller/metal/instrumentation.rb:41:in `block (2 levels) in render'
+  activesupport (4.1.5) lib/active_support/core_ext/benchmark.rb:12:in `block in ms'
+  /home/prashant/.rvm/rubies/ruby-2.2.2/lib/ruby/2.2.0/benchmark.rb:303:in `realtime'
+  activesupport (4.1.5) lib/active_support/core_ext/benchmark.rb:12:in `ms'
+  actionpack (4.1.5) lib/action_controller/metal/instrumentation.rb:41:in `block in render'
+  actionpack (4.1.5) lib/action_controller/metal/instrumentation.rb:84:in `cleanup_view_runtime'
+  activerecord (4.1.5) lib/active_record/railties/controller_runtime.rb:25:in `cleanup_view_runtime'
+  actionpack (4.1.5) lib/action_controller/metal/instrumentation.rb:40:in `render'
+  actionpack (4.1.5) lib/action_controller/metal/implicit_render.rb:10:in `default_render'
+  actionpack (4.1.5) lib/action_controller/metal/implicit_render.rb:5:in `send_action'
+  actionpack (4.1.5) lib/abstract_controller/base.rb:189:in `process_action'
+  actionpack (4.1.5) lib/action_controller/metal/rendering.rb:10:in `process_action'
+  actionpack (4.1.5) lib/abstract_controller/callbacks.rb:20:in `block in process_action'
+  activesupport (4.1.5) lib/active_support/callbacks.rb:113:in `call'
+  activesupport (4.1.5) lib/active_support/callbacks.rb:113:in `call'
+  activesupport (4.1.5) lib/active_support/callbacks.rb:149:in `block in halting_and_conditional'
+  activesupport (4.1.5) lib/active_support/callbacks.rb:229:in `call'
+  activesupport (4.1.5) lib/active_support/callbacks.rb:229:in `block in halting'
+  activesupport (4.1.5) lib/active_support/callbacks.rb:166:in `call'
+  activesupport (4.1.5) lib/active_support/callbacks.rb:166:in `block in halting'
+  activesupport (4.1.5) lib/active_support/callbacks.rb:166:in `call'
+  activesupport (4.1.5) lib/active_support/callbacks.rb:166:in `block in halting'
+  activesupport (4.1.5) lib/active_support/callbacks.rb:86:in `call'
+  activesupport (4.1.5) lib/active_support/callbacks.rb:86:in `run_callbacks'
+  actionpack (4.1.5) lib/abstract_controller/callbacks.rb:19:in `process_action'
+  actionpack (4.1.5) lib/action_controller/metal/rescue.rb:29:in `process_action'
+  actionpack (4.1.5) lib/action_controller/metal/instrumentation.rb:31:in `block in process_action'
+  activesupport (4.1.5) lib/active_support/notifications.rb:159:in `block in instrument'
+  activesupport (4.1.5) lib/active_support/notifications/instrumenter.rb:20:in `instrument'
+  activesupport (4.1.5) lib/active_support/notifications.rb:159:in `instrument'
+  actionpack (4.1.5) lib/action_controller/metal/instrumentation.rb:30:in `process_action'
+  actionpack (4.1.5) lib/action_controller/metal/params_wrapper.rb:250:in `process_action'
+  activerecord (4.1.5) lib/active_record/railties/controller_runtime.rb:18:in `process_action'
+  actionpack (4.1.5) lib/abstract_controller/base.rb:136:in `process'
+  actionview (4.1.5) lib/action_view/rendering.rb:30:in `process'
+  actionpack (4.1.5) lib/action_controller/metal.rb:196:in `dispatch'
+  actionpack (4.1.5) lib/action_controller/metal/rack_delegation.rb:13:in `dispatch'
+  actionpack (4.1.5) lib/action_controller/metal.rb:232:in `block in action'
+  actionpack (4.1.5) lib/action_dispatch/routing/route_set.rb:82:in `call'
+  actionpack (4.1.5) lib/action_dispatch/routing/route_set.rb:82:in `dispatch'
+  actionpack (4.1.5) lib/action_dispatch/routing/route_set.rb:50:in `call'
+  actionpack (4.1.5) lib/action_dispatch/journey/router.rb:71:in `block in call'
+  actionpack (4.1.5) lib/action_dispatch/journey/router.rb:59:in `each'
+  actionpack (4.1.5) lib/action_dispatch/journey/router.rb:59:in `call'
+  actionpack (4.1.5) lib/action_dispatch/routing/route_set.rb:678:in `call'
+  rack (1.5.5) lib/rack/etag.rb:23:in `call'
+  rack (1.5.5) lib/rack/conditionalget.rb:35:in `call'
+  rack (1.5.5) lib/rack/head.rb:11:in `call'
+  actionpack (4.1.5) lib/action_dispatch/middleware/params_parser.rb:27:in `call'
+  actionpack (4.1.5) lib/action_dispatch/middleware/flash.rb:254:in `call'
+  rack (1.5.5) lib/rack/session/abstract/id.rb:225:in `context'
+  rack (1.5.5) lib/rack/session/abstract/id.rb:220:in `call'
+  actionpack (4.1.5) lib/action_dispatch/middleware/cookies.rb:560:in `call'
+  activerecord (4.1.5) lib/active_record/query_cache.rb:36:in `call'
+  activerecord (4.1.5) lib/active_record/connection_adapters/abstract/connection_pool.rb:621:in `call'
+  activerecord (4.1.5) lib/active_record/migration.rb:380:in `call'
+  actionpack (4.1.5) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+  activesupport (4.1.5) lib/active_support/callbacks.rb:82:in `run_callbacks'
+  actionpack (4.1.5) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (4.1.5) lib/action_dispatch/middleware/reloader.rb:73:in `call'
+  actionpack (4.1.5) lib/action_dispatch/middleware/remote_ip.rb:76:in `call'
+  actionpack (4.1.5) lib/action_dispatch/middleware/debug_exceptions.rb:17:in `call'
+  web-console (2.3.0) lib/web_console/middleware.rb:28:in `block in call'
+  web-console (2.3.0) lib/web_console/middleware.rb:18:in `catch'
+  web-console (2.3.0) lib/web_console/middleware.rb:18:in `call'
+  actionpack (4.1.5) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.1.5) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.1.5) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.1.5) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.1.5) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.1.5) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.1.5) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.1.5) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.5) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.5) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.1.5) lib/active_support/cache/strategy/local_cache_middleware.rb:26:in `call'
+  rack (1.5.5) lib/rack/lock.rb:17:in `call'
+  actionpack (4.1.5) lib/action_dispatch/middleware/static.rb:64:in `call'
+  rack (1.5.5) lib/rack/sendfile.rb:112:in `call'
+  railties (4.1.5) lib/rails/engine.rb:514:in `call'
+  railties (4.1.5) lib/rails/application.rb:144:in `call'
+  rack (1.5.5) lib/rack/lock.rb:17:in `call'
+  rack (1.5.5) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.5) lib/rack/handler/webrick.rb:60:in `service'
+  /home/prashant/.rvm/rubies/ruby-2.2.2/lib/ruby/2.2.0/webrick/httpserver.rb:138:in `service'
+  /home/prashant/.rvm/rubies/ruby-2.2.2/lib/ruby/2.2.0/webrick/httpserver.rb:94:in `run'
+  /home/prashant/.rvm/rubies/ruby-2.2.2/lib/ruby/2.2.0/webrick/server.rb:294:in `block in start_thread'
+
+
+  Rendered /home/prashant/.rvm/gems/ruby-2.2.2/gems/actionpack-4.1.5/lib/action_dispatch/middleware/templates/rescues/missing_template.html.erb within rescues/layout (0.8ms)
+  Rendered /home/prashant/.rvm/gems/ruby-2.2.2/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.8ms)
+  Rendered /home/prashant/.rvm/gems/ruby-2.2.2/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.8ms)
+  Rendered /home/prashant/.rvm/gems/ruby-2.2.2/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /home/prashant/.rvm/gems/ruby-2.2.2/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.8ms)
+  Rendered /home/prashant/.rvm/gems/ruby-2.2.2/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (26.1ms)
+  Rendered /home/prashant/.rvm/gems/ruby-2.2.2/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.4ms)
+  Rendered /home/prashant/.rvm/gems/ruby-2.2.2/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.6ms)
+  Rendered /home/prashant/.rvm/gems/ruby-2.2.2/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (52.6ms)
+
+
+Started POST "/employees/bulk_upload" for 127.0.0.1 at 2023-02-08 09:38:08 +0530
+Processing by EmployeesController#bulk_upload as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"5a3HAA1lbvryM4EM7xPG+n3/A0rXziCHU7vPyix+3mM=", "file"=>#<ActionDispatch::Http::UploadedFile:0x007fd9e21a59c8 @tempfile=#<Tempfile:/tmp/RackMultipart20230208-574-rbky5u>, @original_filename="sample-pss.xls", @content_type="application/vnd.ms-excel", @headers="Content-Disposition: form-data; name=\"file\"; filename=\"sample-pss.xls\"\r\nContent-Type: application/vnd.ms-excel\r\n">, "button"=>""}
+  Rendered employees/prepare_import.html.erb within layouts/application (1.3ms)
+Completed 200 OK in 84ms (Views: 51.2ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/employees" for 127.0.0.1 at 2023-02-08 09:38:14 +0530
+Processing by EmployeesController#index as HTML
+  [1m[35mEmployee Load (2.7ms)[0m  SELECT `employees`.* FROM `employees`
+  Rendered employees/index.html.erb within layouts/application (6.7ms)
+Completed 200 OK in 56ms (Views: 52.3ms | ActiveRecord: 2.7ms)
+
+
+Started GET "/employees/prepare_import" for 127.0.0.1 at 2023-02-08 09:38:18 +0530
+Processing by EmployeesController#prepare_import as HTML
+  Rendered employees/prepare_import.html.erb within layouts/application (1.1ms)
+Completed 200 OK in 54ms (Views: 53.0ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/employees/bulk_upload" for 127.0.0.1 at 2023-02-08 09:38:22 +0530
+Processing by EmployeesController#bulk_upload as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"5a3HAA1lbvryM4EM7xPG+n3/A0rXziCHU7vPyix+3mM=", "file"=>#<ActionDispatch::Http::UploadedFile:0x007fd9e17e5ed8 @tempfile=#<Tempfile:/tmp/RackMultipart20230208-574-1igzrvu>, @original_filename="sample-pss.xls", @content_type="application/vnd.ms-excel", @headers="Content-Disposition: form-data; name=\"file\"; filename=\"sample-pss.xls\"\r\nContent-Type: application/vnd.ms-excel\r\n">, "button"=>""}
+  Rendered employees/prepare_import.html.erb within layouts/application (1.8ms)
+Completed 200 OK in 95ms (Views: 60.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/employees" for 127.0.0.1 at 2023-02-08 09:38:29 +0530
+Processing by EmployeesController#index as HTML
+  [1m[36mEmployee Load (0.8ms)[0m  [1mSELECT `employees`.* FROM `employees`[0m
+  Rendered employees/index.html.erb within layouts/application (4.4ms)
+Completed 200 OK in 65ms (Views: 63.3ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/employees/prepare_import" for 127.0.0.1 at 2023-02-08 09:38:48 +0530
+Processing by EmployeesController#prepare_import as HTML
+  Rendered employees/prepare_import.html.erb within layouts/application (0.7ms)
+Completed 200 OK in 77ms (Views: 75.8ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/employees/bulk_upload" for 127.0.0.1 at 2023-02-08 09:38:52 +0530
+Processing by EmployeesController#bulk_upload as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"5a3HAA1lbvryM4EM7xPG+n3/A0rXziCHU7vPyix+3mM=", "file"=>#<ActionDispatch::Http::UploadedFile:0x007fd9e1ab5f78 @tempfile=#<Tempfile:/tmp/RackMultipart20230208-574-11ki6x8>, @original_filename="sample-pss.xls", @content_type="application/vnd.ms-excel", @headers="Content-Disposition: form-data; name=\"file\"; filename=\"sample-pss.xls\"\r\nContent-Type: application/vnd.ms-excel\r\n">, "button"=>""}
+  [1m[35m (3.6ms)[0m  BEGIN
+  [1m[36mSQL (25.2ms)[0m  [1mINSERT INTO `employees` (`age`, `company_id`, `contact_no`, `created_at`, `email`, `gender`, `name`, `updated_at`) VALUES (30, 1, '8976360364', '2023-02-08 04:11:59', 'test1@test.com', 'Male', 'Prash', '2023-02-08 04:11:59')[0m
+  [1m[35m (5.5ms)[0m  COMMIT
+  Rendered employees/prepare_import.html.erb within layouts/application (4.5ms)
+Completed 200 OK in 306693ms (Views: 117.6ms | ActiveRecord: 37.7ms)
+
+
+Started GET "/assets/companies.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2023-02-08 09:43:59 +0530
+
+
+Started GET "/employees/prepare_import" for 127.0.0.1 at 2023-02-08 09:45:25 +0530
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Processing by EmployeesController#prepare_import as HTML
+  Rendered employees/prepare_import.html.erb within layouts/application (2.5ms)
+Completed 200 OK in 373ms (Views: 363.9ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/employees/bulk_upload" for 127.0.0.1 at 2023-02-08 09:45:43 +0530
+Processing by EmployeesController#bulk_upload as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"5a3HAA1lbvryM4EM7xPG+n3/A0rXziCHU7vPyix+3mM=", "file"=>#<ActionDispatch::Http::UploadedFile:0x0055d98aa007f8 @tempfile=#<Tempfile:/tmp/RackMultipart20230208-1824-xkiff7>, @original_filename="sample-pss.xls", @content_type="application/vnd.ms-excel", @headers="Content-Disposition: form-data; name=\"file\"; filename=\"sample-pss.xls\"\r\nContent-Type: application/vnd.ms-excel\r\n">, "button"=>""}
+  [1m[35m (0.6ms)[0m  BEGIN
+  [1m[36mEmployee Exists (10.2ms)[0m  [1mSELECT  1 AS one FROM `employees`  WHERE `employees`.`email` = BINARY 'test1@test.com' LIMIT 1[0m
+  [1m[35m (0.3ms)[0m  ROLLBACK
+  Rendered employees/prepare_import.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 4257ms (Views: 52.7ms | ActiveRecord: 16.8ms)
+
+
+Started POST "/employees/bulk_upload" for 127.0.0.1 at 2023-02-08 09:46:03 +0530
+Processing by EmployeesController#bulk_upload as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"5a3HAA1lbvryM4EM7xPG+n3/A0rXziCHU7vPyix+3mM=", "file"=>#<ActionDispatch::Http::UploadedFile:0x007f630240ce70 @tempfile=#<Tempfile:/tmp/RackMultipart20230208-1824-1kstold>, @original_filename="sample-pss.xls", @content_type="application/vnd.ms-excel", @headers="Content-Disposition: form-data; name=\"file\"; filename=\"sample-pss.xls\"\r\nContent-Type: application/vnd.ms-excel\r\n">, "button"=>""}
+  [1m[36m (1.0ms)[0m  [1mBEGIN[0m
+  [1m[35mEmployee Exists (1.4ms)[0m  SELECT  1 AS one FROM `employees`  WHERE `employees`.`email` = BINARY 'test1@test.com' LIMIT 1
+  [1m[36m (0.6ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.6ms)[0m  BEGIN
+  [1m[36mCACHE (0.1ms)[0m  [1mSELECT  1 AS one FROM `employees`  WHERE `employees`.`email` = BINARY 'test1@test.com' LIMIT 1[0m
+  [1m[35m (1.7ms)[0m  ROLLBACK
+  Rendered employees/prepare_import.html.erb within layouts/application (2.9ms)
+Completed 200 OK in 119031ms (Views: 98.5ms | ActiveRecord: 5.4ms)
+
+
+Started GET "/employees/bulk_upload" for 127.0.0.1 at 2023-02-08 09:48:26 +0530
+Processing by EmployeesController#show as HTML
+  Parameters: {"id"=>"bulk_upload"}
+  [1m[36mEmployee Load (5.4ms)[0m  [1mSELECT  `employees`.* FROM `employees`  WHERE `employees`.`id` = 0 LIMIT 1[0m
+Completed 404 Not Found in 14ms
+
+ActiveRecord::RecordNotFound (Couldn't find Employee with 'id'=bulk_upload):
+  app/controllers/employees_controller.rb:105:in `set_employee'
+
+
+  Rendered /home/prashant/.rvm/gems/ruby-2.2.2/gems/actionpack-4.1.5/lib/action_dispatch/middleware/templates/rescues/_source.erb (1.5ms)
+  Rendered /home/prashant/.rvm/gems/ruby-2.2.2/gems/actionpack-4.1.5/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.9ms)
+  Rendered /home/prashant/.rvm/gems/ruby-2.2.2/gems/actionpack-4.1.5/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.2ms)
+  Rendered /home/prashant/.rvm/gems/ruby-2.2.2/gems/actionpack-4.1.5/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (31.5ms)
+  Rendered /home/prashant/.rvm/gems/ruby-2.2.2/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (1.3ms)
+  Rendered /home/prashant/.rvm/gems/ruby-2.2.2/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.7ms)
+  Rendered /home/prashant/.rvm/gems/ruby-2.2.2/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.7ms)
+  Rendered /home/prashant/.rvm/gems/ruby-2.2.2/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.5ms)
+  Rendered /home/prashant/.rvm/gems/ruby-2.2.2/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (35.1ms)
+  Rendered /home/prashant/.rvm/gems/ruby-2.2.2/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.6ms)
+  Rendered /home/prashant/.rvm/gems/ruby-2.2.2/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.6ms)
+  Rendered /home/prashant/.rvm/gems/ruby-2.2.2/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (78.7ms)
+
+
+Started GET "/employees/prepare_import" for 127.0.0.1 at 2023-02-08 09:48:35 +0530
+Processing by EmployeesController#prepare_import as HTML
+  Rendered employees/prepare_import.html.erb within layouts/application (2.1ms)
+Completed 200 OK in 88ms (Views: 85.4ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/employees/bulk_upload" for 127.0.0.1 at 2023-02-08 09:49:20 +0530
+Processing by EmployeesController#bulk_upload as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"5a3HAA1lbvryM4EM7xPG+n3/A0rXziCHU7vPyix+3mM=", "file"=>#<ActionDispatch::Http::UploadedFile:0x007f6301605b38 @tempfile=#<Tempfile:/tmp/RackMultipart20230208-1824-ff26fj>, @original_filename="sample-pss.xls", @content_type="application/vnd.ms-excel", @headers="Content-Disposition: form-data; name=\"file\"; filename=\"sample-pss.xls\"\r\nContent-Type: application/vnd.ms-excel\r\n">, "button"=>""}
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mEmployee Exists (0.4ms)[0m  [1mSELECT  1 AS one FROM `employees`  WHERE `employees`.`email` = BINARY 'test1@test.com' LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  Rendered employees/prepare_import.html.erb within layouts/application (0.7ms)
+Completed 200 OK in 91ms (Views: 57.1ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/employees/bulk_upload" for 127.0.0.1 at 2023-02-08 09:49:54 +0530
+Processing by EmployeesController#show as HTML
+  Parameters: {"id"=>"bulk_upload"}
+  [1m[36mEmployee Load (0.8ms)[0m  [1mSELECT  `employees`.* FROM `employees`  WHERE `employees`.`id` = 0 LIMIT 1[0m
+Completed 404 Not Found in 18ms
+
+ActiveRecord::RecordNotFound (Couldn't find Employee with 'id'=bulk_upload):
+  app/controllers/employees_controller.rb:105:in `set_employee'
+
+
+  Rendered /home/prashant/.rvm/gems/ruby-2.2.2/gems/actionpack-4.1.5/lib/action_dispatch/middleware/templates/rescues/_source.erb (2.3ms)
+  Rendered /home/prashant/.rvm/gems/ruby-2.2.2/gems/actionpack-4.1.5/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.7ms)
+  Rendered /home/prashant/.rvm/gems/ruby-2.2.2/gems/actionpack-4.1.5/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (2.0ms)
+  Rendered /home/prashant/.rvm/gems/ruby-2.2.2/gems/actionpack-4.1.5/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (40.0ms)
+  Rendered /home/prashant/.rvm/gems/ruby-2.2.2/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.6ms)
+  Rendered /home/prashant/.rvm/gems/ruby-2.2.2/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.6ms)
+  Rendered /home/prashant/.rvm/gems/ruby-2.2.2/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.4ms)
+  Rendered /home/prashant/.rvm/gems/ruby-2.2.2/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.4ms)
+  Rendered /home/prashant/.rvm/gems/ruby-2.2.2/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (23.8ms)
+  Rendered /home/prashant/.rvm/gems/ruby-2.2.2/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.3ms)
+  Rendered /home/prashant/.rvm/gems/ruby-2.2.2/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (1.1ms)
+  Rendered /home/prashant/.rvm/gems/ruby-2.2.2/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (55.2ms)
+
+
+Started GET "/employees/prepare_import" for 127.0.0.1 at 2023-02-08 09:49:58 +0530
+Processing by EmployeesController#prepare_import as HTML
+  Rendered employees/prepare_import.html.erb within layouts/application (2.1ms)
+Completed 200 OK in 66ms (Views: 65.6ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/employees/bulk_upload" for 127.0.0.1 at 2023-02-08 09:50:02 +0530
+Processing by EmployeesController#bulk_upload as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"5a3HAA1lbvryM4EM7xPG+n3/A0rXziCHU7vPyix+3mM=", "file"=>#<ActionDispatch::Http::UploadedFile:0x007f63024959c8 @tempfile=#<Tempfile:/tmp/RackMultipart20230208-1824-1yf4i4i>, @original_filename="sample-pss.xls", @content_type="application/vnd.ms-excel", @headers="Content-Disposition: form-data; name=\"file\"; filename=\"sample-pss.xls\"\r\nContent-Type: application/vnd.ms-excel\r\n">, "button"=>""}
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mEmployee Exists (0.5ms)[0m  [1mSELECT  1 AS one FROM `employees`  WHERE `employees`.`email` = BINARY 'test1@test.com' LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  Rendered employees/prepare_import.html.erb within layouts/application (1.4ms)
+Completed 200 OK in 86ms (Views: 59.3ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/employees/prepare_import" for 127.0.0.1 at 2023-02-08 09:53:52 +0530
+Processing by EmployeesController#prepare_import as HTML
+  Rendered employees/prepare_import.html.erb within layouts/application (3.5ms)
+Completed 200 OK in 80ms (Views: 77.2ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/employees/bulk_upload" for 127.0.0.1 at 2023-02-08 09:53:56 +0530
+Processing by EmployeesController#bulk_upload as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"5a3HAA1lbvryM4EM7xPG+n3/A0rXziCHU7vPyix+3mM=", "file"=>#<ActionDispatch::Http::UploadedFile:0x007f63013084d0 @tempfile=#<Tempfile:/tmp/RackMultipart20230208-1824-1ngv0sw>, @original_filename="sample-pss.xls", @content_type="application/vnd.ms-excel", @headers="Content-Disposition: form-data; name=\"file\"; filename=\"sample-pss.xls\"\r\nContent-Type: application/vnd.ms-excel\r\n">, "button"=>""}
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mEmployee Exists (1.1ms)[0m  SELECT  1 AS one FROM `employees`  WHERE `employees`.`email` = BINARY 'test1@test.com' LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  Rendered employees/prepare_import.html.erb within layouts/application (4.5ms)
+Completed 500 Internal Server Error in 61ms
+
+ActionView::Template::Error (undefined method `row_no' for #<Hash:0x0055d98a5f14f0>):
+    26:     <span> These are the errors</span>
+    27:     <%- @errors.each do |f|%>
+    28:       <div>
+    29:         <%= "The row Number #{f.row_no}: #{f.message}"%>
+    30:       </div>
+    31:     <% end %>
+    32:   </div>
+  app/views/employees/prepare_import.html.erb:29:in `block in _app_views_employees_prepare_import_html_erb__3382183570750115582_70031602960740'
+  app/views/employees/prepare_import.html.erb:27:in `each'
+  app/views/employees/prepare_import.html.erb:27:in `_app_views_employees_prepare_import_html_erb__3382183570750115582_70031602960740'
+  app/controllers/employees_controller.rb:99:in `bulk_upload'
+
+
+  Rendered /home/prashant/.rvm/gems/ruby-2.2.2/gems/actionpack-4.1.5/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.2ms)
+  Rendered /home/prashant/.rvm/gems/ruby-2.2.2/gems/actionpack-4.1.5/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.8ms)
+  Rendered /home/prashant/.rvm/gems/ruby-2.2.2/gems/actionpack-4.1.5/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (18.9ms)
+  Rendered /home/prashant/.rvm/gems/ruby-2.2.2/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.8ms)
+  Rendered /home/prashant/.rvm/gems/ruby-2.2.2/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.6ms)
+  Rendered /home/prashant/.rvm/gems/ruby-2.2.2/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.5ms)
+  Rendered /home/prashant/.rvm/gems/ruby-2.2.2/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.7ms)
+  Rendered /home/prashant/.rvm/gems/ruby-2.2.2/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (31.2ms)
+  Rendered /home/prashant/.rvm/gems/ruby-2.2.2/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.3ms)
+  Rendered /home/prashant/.rvm/gems/ruby-2.2.2/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.7ms)
+  Rendered /home/prashant/.rvm/gems/ruby-2.2.2/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (57.8ms)
+
+
+Started POST "/employees/bulk_upload" for 127.0.0.1 at 2023-02-08 09:54:21 +0530
+Processing by EmployeesController#bulk_upload as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"5a3HAA1lbvryM4EM7xPG+n3/A0rXziCHU7vPyix+3mM=", "file"=>#<ActionDispatch::Http::UploadedFile:0x007f6302832220 @tempfile=#<Tempfile:/tmp/RackMultipart20230208-1824-kswlx6>, @original_filename="sample-pss.xls", @content_type="application/vnd.ms-excel", @headers="Content-Disposition: form-data; name=\"file\"; filename=\"sample-pss.xls\"\r\nContent-Type: application/vnd.ms-excel\r\n">, "button"=>""}
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mEmployee Exists (0.9ms)[0m  [1mSELECT  1 AS one FROM `employees`  WHERE `employees`.`email` = BINARY 'test1@test.com' LIMIT 1[0m
+  [1m[35m (0.6ms)[0m  ROLLBACK
+  Rendered employees/prepare_import.html.erb within layouts/application (81166.1ms)
+Completed 500 Internal Server Error in 81225ms
+
+ActionView::Template::Error (undefined method `row_no' for #<Hash:0x007f63028de1b0>):
+    27:     <%- @errors.each do |f|%>
+    28:       <div>
+    29:         <%= "The row Number #{f[:row_no]}: #{f[:message]}"%>
+    30:       </div>
+    31:     <% end %>
+    32:   </div>
+    33: <%end%>
+  app/views/employees/prepare_import.html.erb:30:in `block in _app_views_employees_prepare_import_html_erb__3382183570750115582_70031610668180'
+  app/views/employees/prepare_import.html.erb:27:in `each'
+  app/views/employees/prepare_import.html.erb:27:in `_app_views_employees_prepare_import_html_erb__3382183570750115582_70031610668180'
+  app/controllers/employees_controller.rb:99:in `bulk_upload'
+
+
+  Rendered /home/prashant/.rvm/gems/ruby-2.2.2/gems/actionpack-4.1.5/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.5ms)
+  Rendered /home/prashant/.rvm/gems/ruby-2.2.2/gems/actionpack-4.1.5/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.4ms)
+  Rendered /home/prashant/.rvm/gems/ruby-2.2.2/gems/actionpack-4.1.5/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (28.8ms)
+  Rendered /home/prashant/.rvm/gems/ruby-2.2.2/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.7ms)
+  Rendered /home/prashant/.rvm/gems/ruby-2.2.2/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.6ms)
+  Rendered /home/prashant/.rvm/gems/ruby-2.2.2/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /home/prashant/.rvm/gems/ruby-2.2.2/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.5ms)
+  Rendered /home/prashant/.rvm/gems/ruby-2.2.2/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (29.3ms)
+  Rendered /home/prashant/.rvm/gems/ruby-2.2.2/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.3ms)
+  Rendered /home/prashant/.rvm/gems/ruby-2.2.2/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.5ms)
+  Rendered /home/prashant/.rvm/gems/ruby-2.2.2/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (61.0ms)
+
+
+Started POST "/employees/bulk_upload" for 127.0.0.1 at 2023-02-08 09:55:46 +0530
+Processing by EmployeesController#bulk_upload as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"5a3HAA1lbvryM4EM7xPG+n3/A0rXziCHU7vPyix+3mM=", "file"=>#<ActionDispatch::Http::UploadedFile:0x007f6301844610 @tempfile=#<Tempfile:/tmp/RackMultipart20230208-1824-nbrijw>, @original_filename="sample-pss.xls", @content_type="application/vnd.ms-excel", @headers="Content-Disposition: form-data; name=\"file\"; filename=\"sample-pss.xls\"\r\nContent-Type: application/vnd.ms-excel\r\n">, "button"=>""}
+  [1m[36m (0.4ms)[0m  [1mBEGIN[0m
+  [1m[35mEmployee Exists (0.5ms)[0m  SELECT  1 AS one FROM `employees`  WHERE `employees`.`email` = BINARY 'test1@test.com' LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  Rendered employees/prepare_import.html.erb within layouts/application (3.9ms)
+Completed 200 OK in 117ms (Views: 62.8ms | ActiveRecord: 1.1ms)
+
+
+Started POST "/employees/bulk_upload" for 127.0.0.1 at 2023-02-08 09:56:03 +0530
+Processing by EmployeesController#bulk_upload as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"5a3HAA1lbvryM4EM7xPG+n3/A0rXziCHU7vPyix+3mM=", "file"=>#<ActionDispatch::Http::UploadedFile:0x007f630247efc0 @tempfile=#<Tempfile:/tmp/RackMultipart20230208-1824-1o3pai0>, @original_filename="monolithic_proof.docx", @content_type="application/vnd.openxmlformats-officedocument.wordprocessingml.document", @headers="Content-Disposition: form-data; name=\"file\"; filename=\"monolithic_proof.docx\"\r\nContent-Type: application/vnd.openxmlformats-officedocument.wordprocessingml.document\r\n">, "button"=>""}
+Redirected to http://localhost:3000/employees/prepare_import
+Completed 500 Internal Server Error in 6ms
+
+AbstractController::DoubleRenderError (Render and/or redirect were called multiple times in this action. Please note that you may only call render OR redirect, and at most once per action. Also note that neither redirect nor render terminate execution of the action, so if you want to exit an action after redirecting, you need to do something like "redirect_to(...) and return".):
+  app/controllers/employees_controller.rb:99:in `bulk_upload'
+
+
+  Rendered /home/prashant/.rvm/gems/ruby-2.2.2/gems/actionpack-4.1.5/lib/action_dispatch/middleware/templates/rescues/_source.erb (0.9ms)
+  Rendered /home/prashant/.rvm/gems/ruby-2.2.2/gems/actionpack-4.1.5/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.1ms)
+  Rendered /home/prashant/.rvm/gems/ruby-2.2.2/gems/actionpack-4.1.5/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.7ms)
+  Rendered /home/prashant/.rvm/gems/ruby-2.2.2/gems/actionpack-4.1.5/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (32.8ms)
+  Rendered /home/prashant/.rvm/gems/ruby-2.2.2/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.4ms)
+  Rendered /home/prashant/.rvm/gems/ruby-2.2.2/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.9ms)
+  Rendered /home/prashant/.rvm/gems/ruby-2.2.2/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.5ms)
+  Rendered /home/prashant/.rvm/gems/ruby-2.2.2/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.5ms)
+  Rendered /home/prashant/.rvm/gems/ruby-2.2.2/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (29.8ms)
+  Rendered /home/prashant/.rvm/gems/ruby-2.2.2/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.7ms)
+  Rendered /home/prashant/.rvm/gems/ruby-2.2.2/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.5ms)
+  Rendered /home/prashant/.rvm/gems/ruby-2.2.2/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (58.1ms)
+
+
+Started POST "/employees/bulk_upload" for 127.0.0.1 at 2023-02-08 09:56:33 +0530
+Processing by EmployeesController#bulk_upload as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"5a3HAA1lbvryM4EM7xPG+n3/A0rXziCHU7vPyix+3mM=", "file"=>#<ActionDispatch::Http::UploadedFile:0x007f6301e7fc78 @tempfile=#<Tempfile:/tmp/RackMultipart20230208-1824-cee1o>, @original_filename="monolithic_proof.docx", @content_type="application/vnd.openxmlformats-officedocument.wordprocessingml.document", @headers="Content-Disposition: form-data; name=\"file\"; filename=\"monolithic_proof.docx\"\r\nContent-Type: application/vnd.openxmlformats-officedocument.wordprocessingml.document\r\n">, "button"=>""}
+Redirected to http://localhost:3000/employees/prepare_import
+Completed 302 Found in 2ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/employees/prepare_import" for 127.0.0.1 at 2023-02-08 09:56:33 +0530
+Processing by EmployeesController#prepare_import as HTML
+  Rendered employees/prepare_import.html.erb within layouts/application (0.7ms)
+Completed 200 OK in 55ms (Views: 53.8ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/employees/bulk_upload" for 127.0.0.1 at 2023-02-08 09:56:39 +0530
+Processing by EmployeesController#bulk_upload as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"5a3HAA1lbvryM4EM7xPG+n3/A0rXziCHU7vPyix+3mM=", "file"=>#<ActionDispatch::Http::UploadedFile:0x007f63013db9c0 @tempfile=#<Tempfile:/tmp/RackMultipart20230208-1824-10h8g3y>, @original_filename="qr_code_PNG36.png", @content_type="image/png", @headers="Content-Disposition: form-data; name=\"file\"; filename=\"qr_code_PNG36.png\"\r\nContent-Type: image/png\r\n">, "button"=>""}
+Redirected to http://localhost:3000/employees/prepare_import
+Completed 302 Found in 4ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/employees/prepare_import" for 127.0.0.1 at 2023-02-08 09:56:39 +0530
+Processing by EmployeesController#prepare_import as HTML
+  Rendered employees/prepare_import.html.erb within layouts/application (2.2ms)
+Completed 200 OK in 57ms (Views: 55.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/employees/prepare_import" for 127.0.0.1 at 2023-02-08 10:00:25 +0530
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Processing by EmployeesController#prepare_import as HTML
+  Rendered employees/prepare_import.html.erb within layouts/application (4.5ms)
+Completed 200 OK in 409ms (Views: 395.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/companies.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2023-02-08 10:00:25 +0530
+
+
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for 127.0.0.1 at 2023-02-08 10:00:25 +0530
+
+
+Started GET "/assets/employees.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2023-02-08 10:00:25 +0530
+
+
+Started POST "/employees/bulk_upload" for 127.0.0.1 at 2023-02-08 10:00:44 +0530
+Processing by EmployeesController#bulk_upload as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"5a3HAA1lbvryM4EM7xPG+n3/A0rXziCHU7vPyix+3mM=", "file"=>#<ActionDispatch::Http::UploadedFile:0x007f98dc273180 @tempfile=#<Tempfile:/tmp/RackMultipart20230208-3711-od05e7>, @original_filename="raya.jpg", @content_type="image/jpeg", @headers="Content-Disposition: form-data; name=\"file\"; filename=\"raya.jpg\"\r\nContent-Type: image/jpeg\r\n">, "button"=>""}
+Redirected to http://localhost:3000/employees/prepare_import
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/employees/prepare_import" for 127.0.0.1 at 2023-02-08 10:00:44 +0530
+Processing by EmployeesController#prepare_import as HTML
+  Rendered employees/prepare_import.html.erb within layouts/application (0.8ms)
+Completed 200 OK in 58ms (Views: 56.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/employees/prepare_import" for 127.0.0.1 at 2023-02-08 10:00:48 +0530
+Processing by EmployeesController#prepare_import as HTML
+  Rendered employees/prepare_import.html.erb within layouts/application (0.7ms)
+Completed 200 OK in 58ms (Views: 57.3ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/employees/bulk_upload" for 127.0.0.1 at 2023-02-08 10:00:57 +0530
+Processing by EmployeesController#bulk_upload as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"5a3HAA1lbvryM4EM7xPG+n3/A0rXziCHU7vPyix+3mM=", "file"=>#<ActionDispatch::Http::UploadedFile:0x0056270979a8e8 @tempfile=#<Tempfile:/tmp/RackMultipart20230208-3711-1gova0b>, @original_filename="sample-pss.xls", @content_type="application/vnd.ms-excel", @headers="Content-Disposition: form-data; name=\"file\"; filename=\"sample-pss.xls\"\r\nContent-Type: application/vnd.ms-excel\r\n">, "button"=>""}
+  [1m[35m (0.4ms)[0m  BEGIN
+  [1m[36mEmployee Exists (0.4ms)[0m  [1mSELECT  1 AS one FROM `employees`  WHERE `employees`.`email` = BINARY 'test1@test.com' LIMIT 1[0m
+  [1m[35m (0.3ms)[0m  ROLLBACK
+  Rendered employees/prepare_import.html.erb within layouts/application (0.7ms)
+Completed 200 OK in 156ms (Views: 56.2ms | ActiveRecord: 2.3ms)
+
+
+Started GET "/employees/prepare_import" for 127.0.0.1 at 2023-02-08 10:02:58 +0530
+Processing by EmployeesController#prepare_import as HTML
+  Rendered employees/prepare_import.html.erb within layouts/application (2.8ms)
+Completed 200 OK in 55ms (Views: 54.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/employees" for 127.0.0.1 at 2023-02-08 10:11:11 +0530
+Processing by EmployeesController#index as HTML
+  [1m[36mEmployee Load (0.3ms)[0m  [1mSELECT `employees`.* FROM `employees`[0m
+  Rendered employees/index.html.erb within layouts/application (13.7ms)
+Completed 200 OK in 68ms (Views: 60.6ms | ActiveRecord: 4.1ms)
+
+
+Started GET "/companies" for 127.0.0.1 at 2023-02-08 10:11:25 +0530
+Processing by CompaniesController#index as HTML
+  [1m[35mCompany Load (1.4ms)[0m  SELECT `companies`.* FROM `companies`
+  Rendered companies/index.html.erb within layouts/application (9.8ms)
+Completed 200 OK in 80ms (Views: 71.4ms | ActiveRecord: 2.8ms)
+
+
+Started GET "/employees/" for 127.0.0.1 at 2023-02-08 10:12:04 +0530
+Processing by EmployeesController#index as HTML
+  [1m[36mEmployee Load (1.5ms)[0m  [1mSELECT `employees`.* FROM `employees`[0m
+  Rendered employees/index.html.erb within layouts/application (11.4ms)
+Completed 200 OK in 110ms (Views: 104.1ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/employees/prepare_import" for 127.0.0.1 at 2023-02-08 10:12:06 +0530
+Processing by EmployeesController#prepare_import as HTML
+  Rendered employees/prepare_import.html.erb within layouts/application (1.2ms)
+Completed 200 OK in 83ms (Views: 82.0ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/employees/bulk_upload" for 127.0.0.1 at 2023-02-08 10:12:11 +0530
+Processing by EmployeesController#bulk_upload as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"5a3HAA1lbvryM4EM7xPG+n3/A0rXziCHU7vPyix+3mM=", "file"=>#<ActionDispatch::Http::UploadedFile:0x007f98dca02e00 @tempfile=#<Tempfile:/tmp/RackMultipart20230208-3711-12584tb>, @original_filename="sample-pss.xls", @content_type="application/vnd.ms-excel", @headers="Content-Disposition: form-data; name=\"file\"; filename=\"sample-pss.xls\"\r\nContent-Type: application/vnd.ms-excel\r\n">, "button"=>""}
+  [1m[35mCompany Load (6.4ms)[0m  SELECT  `companies`.* FROM `companies`  WHERE (bar LIKE '%something%')  ORDER BY `companies`.`id` ASC LIMIT 1
+Mysql2::Error: Unknown column 'bar' in 'where clause': SELECT  `companies`.* FROM `companies`  WHERE (bar LIKE '%something%')  ORDER BY `companies`.`id` ASC LIMIT 1
+  [1m[36m (0.3ms)[0m  [1mBEGIN[0m
+  [1m[35mEmployee Exists (0.6ms)[0m  SELECT  1 AS one FROM `employees`  WHERE `employees`.`email` = BINARY 'test1@test.com' LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[35mCompany Load (1.1ms)[0m  SELECT  `companies`.* FROM `companies`  WHERE (bar LIKE '%pss%')  ORDER BY `companies`.`id` ASC LIMIT 1
+Mysql2::Error: Unknown column 'bar' in 'where clause': SELECT  `companies`.* FROM `companies`  WHERE (bar LIKE '%pss%')  ORDER BY `companies`.`id` ASC LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mEmployee Exists (0.4ms)[0m  SELECT  1 AS one FROM `employees`  WHERE `employees`.`email` = BINARY 'somehtng@s.com' LIMIT 1
+  [1m[36m (0.4ms)[0m  [1mROLLBACK[0m
+  Rendered employees/prepare_import.html.erb within layouts/application (1.8ms)
+Completed 200 OK in 108ms (Views: 54.3ms | ActiveRecord: 9.5ms)
+
+
+Started POST "/employees/bulk_upload" for 127.0.0.1 at 2023-02-08 10:12:51 +0530
+Processing by EmployeesController#bulk_upload as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"5a3HAA1lbvryM4EM7xPG+n3/A0rXziCHU7vPyix+3mM=", "file"=>#<ActionDispatch::Http::UploadedFile:0x007f98ed5c52f0 @tempfile=#<Tempfile:/tmp/RackMultipart20230208-3711-1phleqh>, @original_filename="sample-pss.xls", @content_type="application/vnd.ms-excel", @headers="Content-Disposition: form-data; name=\"file\"; filename=\"sample-pss.xls\"\r\nContent-Type: application/vnd.ms-excel\r\n">, "button"=>""}
+  [1m[35mCompany Load (6.2ms)[0m  SELECT  `companies`.* FROM `companies`  WHERE (bar LIKE '%something%')  ORDER BY `companies`.`id` ASC LIMIT 1
+Mysql2::Error: Unknown column 'bar' in 'where clause': SELECT  `companies`.* FROM `companies`  WHERE (bar LIKE '%something%')  ORDER BY `companies`.`id` ASC LIMIT 1
+  [1m[36mCompany Load (5.0ms)[0m  [1mSELECT `companies`.* FROM `companies`  WHERE (bar LIKE '%something%')[0m
+Mysql2::Error: Unknown column 'bar' in 'where clause': SELECT `companies`.* FROM `companies`  WHERE (bar LIKE '%something%')
+  [1m[35mCompany Load (6.2ms)[0m  SELECT `companies`.* FROM `companies`  WHERE (bar LIKE '%something%')
+Mysql2::Error: Unknown column 'bar' in 'where clause': SELECT `companies`.* FROM `companies`  WHERE (bar LIKE '%something%')
+  [1m[36mCompany Load (4.6ms)[0m  [1mSELECT  `companies`.* FROM `companies`  WHERE (bar LIKE '%something%')  ORDER BY `companies`.`id` ASC LIMIT 1[0m
+Mysql2::Error: Unknown column 'bar' in 'where clause': SELECT  `companies`.* FROM `companies`  WHERE (bar LIKE '%something%')  ORDER BY `companies`.`id` ASC LIMIT 1
+  [1m[35m (1.1ms)[0m  BEGIN
+  [1m[36mEmployee Exists (1.9ms)[0m  [1mSELECT  1 AS one FROM `employees`  WHERE `employees`.`email` = BINARY 'test1@test.com' LIMIT 1[0m
+  [1m[35m (0.7ms)[0m  ROLLBACK
+  [1m[36mCompany Load (4.9ms)[0m  [1mSELECT `companies`.* FROM `companies`  WHERE (bar LIKE '%pss%')[0m
+Mysql2::Error: Unknown column 'bar' in 'where clause': SELECT `companies`.* FROM `companies`  WHERE (bar LIKE '%pss%')
+  [1m[35mCompany Load (4.1ms)[0m  SELECT `companies`.* FROM `companies`  WHERE (bar LIKE '%pss%')
+Mysql2::Error: Unknown column 'bar' in 'where clause': SELECT `companies`.* FROM `companies`  WHERE (bar LIKE '%pss%')
+  [1m[36mCompany Load (3.7ms)[0m  [1mSELECT  `companies`.* FROM `companies`  WHERE (bar LIKE '%pss%')  ORDER BY `companies`.`id` ASC LIMIT 1[0m
+Mysql2::Error: Unknown column 'bar' in 'where clause': SELECT  `companies`.* FROM `companies`  WHERE (bar LIKE '%pss%')  ORDER BY `companies`.`id` ASC LIMIT 1
+  [1m[35m (0.7ms)[0m  BEGIN
+  [1m[36mEmployee Exists (1.3ms)[0m  [1mSELECT  1 AS one FROM `employees`  WHERE `employees`.`email` = BINARY 'somehtng@s.com' LIMIT 1[0m
+  [1m[35m (1.7ms)[0m  ROLLBACK
+  Rendered employees/prepare_import.html.erb within layouts/application (4.9ms)
+Completed 200 OK in 61560ms (Views: 101.1ms | ActiveRecord: 47.7ms)
+
+
+Started POST "/employees/bulk_upload" for 127.0.0.1 at 2023-02-08 10:14:16 +0530
+Processing by EmployeesController#bulk_upload as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"5a3HAA1lbvryM4EM7xPG+n3/A0rXziCHU7vPyix+3mM=", "file"=>#<ActionDispatch::Http::UploadedFile:0x007f98dc384e48 @tempfile=#<Tempfile:/tmp/RackMultipart20230208-3711-16hvtxy>, @original_filename="sample-pss.xls", @content_type="application/vnd.ms-excel", @headers="Content-Disposition: form-data; name=\"file\"; filename=\"sample-pss.xls\"\r\nContent-Type: application/vnd.ms-excel\r\n">, "button"=>""}
+  [1m[36mCompany Load (5.4ms)[0m  [1mSELECT  `companies`.* FROM `companies`  WHERE (company_name LIKE '%something%')  ORDER BY `companies`.`id` ASC LIMIT 1[0m
+  [1m[35mCACHE (0.1ms)[0m  SELECT  `companies`.* FROM `companies`  WHERE (company_name LIKE '%something%')  ORDER BY `companies`.`id` ASC LIMIT 1
+  [1m[36m (0.6ms)[0m  [1mBEGIN[0m
+  [1m[35mEmployee Exists (1.0ms)[0m  SELECT  1 AS one FROM `employees`  WHERE `employees`.`email` = BINARY 'test1@test.com' LIMIT 1
+  [1m[36m (0.7ms)[0m  [1mROLLBACK[0m
+  [1m[35mCompany Load (1.4ms)[0m  SELECT  `companies`.* FROM `companies`  WHERE (company_name LIKE '%pss%')  ORDER BY `companies`.`id` ASC LIMIT 1
+  [1m[36mCACHE (0.1ms)[0m  [1mSELECT  `companies`.* FROM `companies`  WHERE (company_name LIKE '%pss%')  ORDER BY `companies`.`id` ASC LIMIT 1[0m
+  [1m[35m (0.6ms)[0m  BEGIN
+  [1m[36mEmployee Exists (1.0ms)[0m  [1mSELECT  1 AS one FROM `employees`  WHERE `employees`.`email` = BINARY 'somehtng@s.com' LIMIT 1[0m
+  [1m[35mSQL (1.3ms)[0m  INSERT INTO `employees` (`age`, `company_id`, `contact_no`, `created_at`, `email`, `gender`, `name`, `updated_at`) VALUES (32, 1, '1234569874', '2023-02-08 04:44:42', 'somehtng@s.com', 'Male', 'amit', '2023-02-08 04:44:42')
+  [1m[36m (5.5ms)[0m  [1mCOMMIT[0m
+  Rendered employees/prepare_import.html.erb within layouts/application (3.5ms)
+Completed 200 OK in 25688ms (Views: 119.1ms | ActiveRecord: 28.4ms)

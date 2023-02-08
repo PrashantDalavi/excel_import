@@ -1,0 +1,34 @@
+<h1>Listing employees</h1>
+<%= link_to 'Bulk Upload', prepare_import_employees_path, class: "" %>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Gender</th>
+      <th>Email</th>
+      <th>Age</th>
+      <th>Contact no</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @employees.each do |employee| %>
+      <tr>
+        <td><%= employee.name %></td>
+        <td><%= employee.gender %></td>
+        <td><%= employee.email %></td>
+        <td><%= employee.age %></td>
+        <td><%= employee.contact_no %></td>
+        <td><%= link_to 'Show', employee %></td>
+        <td><%= link_to 'Edit', edit_employee_path(employee) %></td>
+        <td><%= link_to 'Destroy', employee, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Employee', new_employee_path %>
