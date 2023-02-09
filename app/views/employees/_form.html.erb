@@ -31,6 +31,10 @@
     <%= f.label :contact_no %><br>
     <%= f.text_field :contact_no %>
   </div>
+  <div class="field">
+    <%= f.label :company_name %><br>
+    <%= f.select :company_id,  options_from_collection_for_select(Company.all, :id,:company_name, selected: f.object.company_id), { include_blank: "Please Select" }  %>
+  </div>
   <div class="actions">
     <%= f.submit %>
   </div>
